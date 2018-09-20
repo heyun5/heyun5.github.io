@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+		<link rel="stylesheet" href="lib/css/bootstrap.css" />
+	</head>
+	<body>
+		<div class="box">
+			<i class="fa fa-chevron-circle-left box-left"></i>iconback
+		</div>
+		<div class="box">
+			forward<i class="fa fa-chevron-circle-right box-right"></i>
+		</div>
+		<div class="box">
+			cortect<i class="glyphicon glyphicon-ok box-w"></i>
+		</div>
+	</body>
+	<style>
+		.box{
+			width: 100px;
+			background: #ccc;
+			margin: 20px;
+			padding: 10px;
+		}
+		.box:hover .box-left{
+			-webkit-transform: translateX(-4px);
+		}
+		.box:hover .box-right{
+			-webkit-transform: translateX(4px);
+		}
+		.box:hover .box-w{
+			color: #008000;
+			-webkit-transform: scale(1.5);
+		}
+	</style>
+</html>

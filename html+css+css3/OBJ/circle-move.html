@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			
+			.box{
+				height: 400px;
+				width: 400px;
+				border: 1px solid black;
+				margin: 0 auto;
+				position: relative;				
+			}
+			.box div{
+				position: absolute;
+				width: 30px;
+				height: 30px;
+				border-radius: 50%;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+
+
+		<script type="text/javascript">
+			//开始时小球所在位置及状态
+			var Circle = function(x,y,color,speed){
+				this.x = x;
+				this.y = y;
+				this.color = color;
+				this.speed = speed;
+				this.draw = function(){
+					this.circle = document.createElement('div');
+					this.circle.className = 'circles';
+					this.circle.style.background = this.color || 'red';
+					this.circle.style.top = this.y + 'px';
+					this.circle.style.left = this.x + 'px';
+					document.getElementsByClassName('box')[0].appendChild(this.circle);					
+				}
+			}
+			//画出小球的数量
+			var circle1 = new Circle(0,0,'green',10);
+			circle1.draw();
+			var circle2 = new Circle(0,100,'red',10);
+			circle2.draw();
+			//小球向右移动	
+			Circle.prototype.moveRight = function(){
+				this.circle.style.left = parseInt(this.circle.style.left) + this.speed + 'px' ;
+			}
+			//小球向左移动
+			Circle.prototype.moveLeft = function(){
+				this.circle.style.left = parseInt(this.circle.style.left) - this.speed + 'px' ;
+			}		
+			//小球向上移动
+			Circle.prototype.moveTop = function(){				
+				this.circle.style.top = parseInt(this.circle.style.top) - this.speed + 'px' ;
+			}
+			//小球向下移动
+			Circle.prototype.moveDown = function(){
+				this.circle.style.top = parseInt(this.circle.style.top) + this.speed + 'px' ;
+			}
+			
+			//键盘按下时改变小球运动
+			changeDir = function(){				
+				var circles= document.getElementsByClassName('circles');
+				//获取当前小球的位置值
+				var circlesLeft = parseInt(circles[0].style.left);
+				var circlesTop = parseInt(circles[0].style.top);
+				var circlesLeft2 = parseInt(circles[1].style.left);
+				var circlesTop2 = parseInt(circles[1].style.top);
+				if(circlesLeft <= 0){
+					direction = 'right';
+				}else if(circlesLeft >= 370 ){
+					direction = 'left';					
+				}else if(circlesTop <= 0){
+					direction = 'down';					
+				}else if(circlesTop >= 370){
+					direction = 'up';					
+				}
+				//这是红色小球的方向判断
+				if(circlesLeft2 <= 0){
+					dir = 'Dright';
+				}else if(circlesLeft2 >= 370){
+					dir = 'Aleft';
+				}else if(circlesTop2 <= 0){
+					dir = 'Sdown';
+				}else if(circlesTop2 >= 370){
+					dir = 'Wup';
+				}
+			}
+	//		定义小球的运动方向		
+			var direction = 'right';	
+			var dir = 'Sdown';
+			document.body.onkeydown = function(event){
+				console.log(event.keyCode)
+				switch (event.keyCode){
+					case 69:
+						dir = 'Aleft';
+						break;
+					case 87:
+						dir = 'Wup';
+						break;
+					case 68:
+						dir = 'Dright';
+						break;
+					case 83:
+						dir = 'Sdown';
+						break;
+					case 37:
+						direction = 'left';
+						break;
+					case 38:
+						direction = 'up';
+						break;
+					case 39:
+						direction = 'right';
+						break;
+					case 40:
+						direction = 'down';
+						break;	
+					default:
+						break;
+				}
+				
+			}			
+			 setInterval(function(){
+				changeDir();
+				if(direction === 'left'){
+					circle1.moveLeft();					
+				}else if(direction === 'right'){
+					circle1.moveRight();
+				}else if(direction === 'up'){
+					circle1.moveTop();
+				}else if(direction === 'down'){
+					circle1.moveDown();
+				}
+				
+				if(dir === 'Aleft'){
+					circle2.moveLeft();
+				}else if(dir === 'Wup'){
+					circle2.moveTop();	
+				}else if(dir === 'Dright'){
+					circle2.moveRight();	
+				}else if(dir === 'Sdown'){
+					circle2.moveDown();	
+				}						
+			},100)	
+		</script>
+	</body>
+</html>
+

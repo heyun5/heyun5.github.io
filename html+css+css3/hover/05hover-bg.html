@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h3>背景切换</h3>
+		<div class="fade">fade</div>
+		<div class="pulse">pulse</div>
+		<div class="sweep-top">sweep-top</div>
+		<div class="sweep-left">sweep-left</div>
+		<div class="bounce-left">bounce-left</div>
+		<div class="radialin">radialin</div>
+		<div class='rectin'>rectin</div>
+		<div class="shutterin">shutterin</div>
+		<div class="shutterout">shutterout</div>
+	</body>
+	<style>
+		body{
+			margin: 50px;
+		}
+		div{
+			padding: 0px 20px;
+			background: #ccc;
+			color: white;
+			margin: 10px;
+			line-height: 50px;
+			display: inline-block;
+			transition: all 1s;
+			position: relative;
+			z-index: 1;
+		}
+		
+		.fade::before{
+			content: "";
+			background: cornflowerblue;
+			width: 100%;
+			height: 100%;
+			display: block;
+			z-index: -1;
+			transform: scale(0);
+			position: absolute;
+			margin-left: -20px;
+			
+		}
+		.fade:hover::before{
+			transform: scale(1);
+		}
+		@keyframes pulse{
+			50%{background: cornflowerblue;}
+		}
+		/*名称。事件，时间曲线，循环次数*/
+		.pulse:hover{
+			-webkit-animation-name: pulse;
+			-webkit-animation-duration: 1s;
+			-webkit-animation-timing-function: ease-in-out;
+			-webkit-animation-iteration-count: infinite;
+		}
+		/*下向上*/
+		.sweep-top:before {
+			  content: "";
+			  position: absolute;
+			  z-index: -1;
+			  top: 0;
+			  left: 0;
+			  right: 0;
+			  bottom: 0;
+			  background: cornflowerblue;
+			  -webkit-transform: scaleY(0);
+			  -webkit-transform-origin: 50% 100%;
+			  -webkit-transition-duration: 0.5s;
+			  -webkit-transition-timing-function: ease-out;
+			 
+		}
+		.sweep-top:hover:before{
+		  	-webkit-transform: scaleY(1);
+		}
+		/*右向左*/
+		.sweep-left:before{
+			content: "";
+			position: absolute;
+			background: cornflowerblue;
+			z-index: -1;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			-webkit-transform-origin: 100% 100%;
+			-webkit-transform: scaleX(0);
+			-webkit-transition-duration: 1s;
+			-webkit-transition-timing-function: ease-out;
+			
+		}
+		.sweep-left:hover::before{
+			-webkit-transform: scaleX(1);
+		}
+		.bounce-left::before{
+			content: "";
+			position: absolute;
+			background: cornflowerblue;
+			z-index: -1;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			-webkit-transform-origin: 100% 100%;
+			-webkit-transform: scaleX(0);
+			-webkit-transition-duration: 1s;
+			/*悬入时抖动，悬出时也抖动*/
+			/*-webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);*/
+			
+		}
+		.bounce-left:hover::before{
+			-webkit-transform: scaleX(1);
+			/*仅悬入时抖动*/
+			-webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+		}
+		.radialin::before{
+			content: "";
+			position: absolute;
+			z-index: -1;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			display:inline-block;
+			background: #ccc;
+			border-radius:50%;
+			-webkit-transform: scale(1);
+			-webkit-transition-duration: 0.5s;
+			-webkit-transition-timing-function: ease-out;
+		}
+		.radialin:hover::before{
+			background: cornflowerblue;
+			-webkit-transform: scale(0);
+		}
+		.rectin::before{
+			content: "";
+			position: absolute;
+			z-index: -1;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			display:inline-block;
+			background: #ccc;
+			border-radius: 10%;
+			-webkit-transform: scale(1);
+			-webkit-transition-duration: 0.5s;
+			-webkit-transition-timing-function: ease-out;
+		}
+		.rectin:hover::before{
+			background: cornflowerblue;
+			-webkit-transform: scale(0);
+		}
+		.shutterin:before{
+			content: "";
+			position: absolute;
+			z-index: -1;
+			display: inline-block;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: #ccc;
+			-webkit-transform: scaleX(0);
+			-webkit-transform-origin:50%;
+			-webkit-transition-duration:1s ;
+			-webkit-transition-timing-function: ease-out;
+		}
+		.shutterin:hover::before{
+			background: cornflowerblue;
+			-webkit-transform: scaleX(1);
+		}
+		.shutterout:before{
+			content: "";
+			position: absolute;
+			z-index: -1;
+			display: inline-block;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: #ccc;
+			-webkit-transform: scaleY(1);
+			-webkit-transform-origin:50%;
+			-webkit-transition-duration:1s ;
+			-webkit-transition-timing-function: ease-out;
+		}
+		.shutterout:hover::before{
+			background: cornflowerblue;
+			-webkit-transform: scaleY(0);
+		}
+	</style>
+</html>

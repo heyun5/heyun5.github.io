@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.3.1.js"></script>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 500px;
+			margin: 10px auto;
+		}
+		.box input{
+			float:left;
+			border:0;
+			outline: none;
+			text-indent:10px;
+		}
+		.box input[type="text"]{
+			height: 40px;
+			width: 398px;
+			border: 1px solid orangered;
+		}
+		.box input[type="button"]{
+			width: 100px;
+			background: orangered;
+			color: white;
+			height: 42px;
+		}
+		.box ul{
+			list-style: none;
+			/*border: 1px solid #ccc;*/
+			display:none;
+			width: 398px;
+		}
+		.box ul li{
+			padding-left:10px ;
+		}
+		.box ul li.aa{
+			background: #CCC;
+			color: white;
+		}
+	</style>
+	<body>
+		<div class="box">
+			<input type="text" />
+			<input type="button" id="btn" value="搜索"/>
+			<ul>
+				
+			</ul>
+		</div>
+		<script>
+			$(function(){
+				//键盘事件
+				$("[type='text']").keyup(function(e){
+					if(e.keyCode==38||e.keyCode==40||e.keyCode==13) return;
+					var kw=$(this).val();//获取输入的值
+					$.ajax({
+						url:'https://suggest.taobao.com/sug?',
+						type:"get",
+						data:{q:kw},
+						dataType:"jsonp",
+						success:function(responseData){
+							var res=responseData.result;
+							$("ul").empty();
+							for(var i in res){
+								$("<li/>").text(res[i][0]).appendTo("ul");
+							}
+							$("ul").show();
+						},
+						error:function(xhr,error,exception){
+							alert("服务器出错")
+						}
+					})
+				}).keydown(function(e){
+					var aa=$("ul li.aa");
+					if(e.keyCode==40){
+						if(aa.length==0||aa.next().length==0){
+							$("ul li").first().addClass("aa").siblings().removeClass("aa")
+						}else{
+							$(aa).next().addClass("aa").siblings().removeClass("aa");
+						}
+						$("[type='text']").val($("li.aa").text());//把选中的值传入input框中
+						
+					}else if(e.keyCode==38){
+						if(aa.prev().length==0||aa.next().length==0){
+							$("ul li").last().addClass("aa").siblings().removeClass("aa");
+						}else{
+							$(aa).prev().addClass("aa").siblings().removeClass("aa")
+						}
+						$("[type='text']").val(("$li.aa").text());
+					}else if(e.keyCode==13){
+						location.href="https://uland.taobao.com/sem/tbsearch?&keyword="+$("[type='text']").val();   
+					}else{
+						$("#btn").click(function(){
+							location.href="https://uland.taobao.com/sem/tbsearch?&keyword="+$("[type='text']").val();   
+						})
+					}
+					
+				});
+			});
+		</script>
+	</body>
+</html>

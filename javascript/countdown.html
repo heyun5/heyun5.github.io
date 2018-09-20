@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<!--  1、倒计时 秒杀活动
+       2分钟 显示秒杀结束
+       01分钟 59秒
+--> 
+<div>
+	<span>1</span>
+	<span>2</span>
+	<span>:</span>
+	<span>0</span>
+	<span>2</span>
+	<span>:</span>
+	<span>0</span>
+	<span>0</span>
+	<input type="button" value="秒杀">
+</div>
+	<script>
+		 var all=2*60;
+		 var box=document.getElementsByTagName('div')[0]
+		 var spans=document.getElementsByTagName('span')
+		 var timeId=setInterval(function(){
+		 	all--;
+		 	var minutes=all/60;
+		 	var seconds=all%60;
+		 	var sp0=Math.floor(minutes/10)
+		 	var sp1=Math.floor(minutes%10)
+		 	var sp3=Math.floor(seconds/10)
+		 	var sp4=Math.floor(seconds%10)
+
+		 	spans[0].innerHTML=sp0
+		 	spans[1].innerHTML=sp1
+		 	spans[3].innerHTML=sp3
+			spans[4].innerHTML=sp4
+			if(all==0){
+				clearInterval(timeId)
+		 		box.innerHTML('秒杀结束')
+			}
+ },100)
+
+		//时分秒
+		//获得总秒数
+		/*var all=12*60*60;
+		var box=document.getElementsByTagName('div')[0]
+		var spans=document.getElementsByTagName('span')
+		var timeId=setInterval(function(){
+			all--;*/
+			//获得时分秒
+			// var hours=all/3600
+			// var minutes=all%3600/60
+			// var seconds=all%60
+
+		/*	var hours=all/3600%24;
+			var minutes=all/60%60
+			var seconds=all%60;
+			
+			//获得十位和个位
+			var sp0=Math.floor(hours/10)
+			var sp1=Math.floor(hours%10)
+			var sp3=Math.floor(minutes/10)
+			var sp4=Math.floor(minutes%10)
+			var sp6=Math.floor(seconds/10)
+			var sp7=Math.floor(seconds%10)
+
+            // 把计算结果赋给span
+            spans[0].innerHTML=sp0;
+            spans[1].innerHTML=sp1;
+			spans[3].innerHTML=sp3;
+			spans[4].innerHTML=sp4;
+			spans[6].innerHTML=sp6;
+			spans[7].innerHTML=sp7;
+			if(all==0){
+				clearInterval(timeId)
+				box.innerHTML('秒杀结束')
+			}
+		},100)*/
+  </script>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<svg id="a" height="300" width="300">
+			<circle cx="60" cy="60" r="50" style="fill:none; stroke:rgba(0,0,0,0.2);stroke-width:10;"></circle>
+			 <circle cx="60" cy="60" r="50" style="fill:none; stroke:blue; stroke-width:10; stroke-dasharray:24,290; stroke-dashoffset:0;">
+			<animate attributeType="XML" attributeName="stroke-dashoffset" from="314" to="0" dur="3s" repeatCount="indefinite" />
+			</circle>
+		</svg>
+		<style>
+			#a{
+				transform:rotate(-90deg);
+			}
+		</style>
+		
+	</body>
+</html>

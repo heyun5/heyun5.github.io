@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--https://c.runoob.com/codedemo/3391 
+		https://ianlunn.github.io/Hover/ 
+		https://gudh.github.io/ihover/dist/index.html 
+		单选复选美化 开关切换 
+		https://blog.csdn.net/wjnf012/article/details/78795573-->
+		<h3>transition</h3>
+		<div class="grow">grow</div>
+		<div class="shrink">shrink</div>
+		<div class="pulse">pulse</div>
+		<div class="pulsegrow">pulsegrow</div>
+		<div class="bouncein">bouncein</div>
+		<div class="bounceout">bounceout</div>
+		<div class="rotate">rotate</div>
+		<div class="float">float</div>
+		<div class="bob">bob</div>
+		<div class="skewforward">skewforward</div>
+		<div class="wobblehorizontal">wobblehorizontal水平摆动</div>
+		<div class="wobble-br">wobble-br</div>
+		<div class="wobble-top">wobble-top</div>
+		<div class="buzz">buzz</div>
+	
+	
+	</body>
+	<style>
+		body{
+			margin: 50px;
+		}
+		div{
+			background: #ddd;
+			color: white;
+			line-height: 50px;
+			padding: 0 20px;
+			margin: 10px;
+			display: inline-block;
+			transition:all 1s;
+			
+		}
+		
+		.grow:hover{
+			transform: scale(1.5);
+		}
+		.shrink:hover{
+			transform: scale(0.5);
+		}
+		@keyframes pulse{
+			50%{-webkit-transform:scale(0.8);}
+			100%{-webkit-transform:scale(1);}
+			
+		}
+		.pulse:hover{
+			-webkit-animation-name:pulse;
+			-webkit-animation-duration:0.5s;
+			-webkit-animation-timing-function: linear;
+			-webkit-animation-iteration-count: infinite;
+		}
+		@keyframes pulsegrow{
+			50%{transform: scale(1.2);}
+			100%{transform:scale(1);}
+		}
+		.pulsegrow:hover{
+			-webkit-animation-name:pulsegrow;
+			-webkit-animation-duration:0.5s;
+			-webkit-animation-timing-function: linear;
+			-webkit-animation-iteration-count: infinite;
+		}
+		/*抖动放大===cubic-bezier(0.47, 2.02, 0.31, -0.36)*/
+		.bouncein:hover{
+			-webkit-transform: scale(1.5);
+			-webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+		}
+		.bounceout:hover{
+			-webkit-transform: scale(0.5);
+			-webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+		}
+		.rotate:hover{
+			-webkit-transform: rotate(30deg) scale(1.5);
+		}
+		.float:hover{
+			-webkit-transform:translateY(-20px) ;
+		}
+		/*小幅度平移*/
+		@keyframes bob{
+			50%{-webkit-transform: translateY(2px);}
+			75%{-webkit-transform: translateY(3px);}
+			100%{-webkit-transform: translateY(1px);}
+			
+		}
+		.bob:hover{
+			-webkit-animation-name:bob;
+			-webkit-animation-duration:0.8s;
+			-webkit-animation-timing-function: linear;
+			-webkit-animation-iteration-count: infinite;
+		}
+		.skewforward:hover{
+			-webkit-transform: skewX(-20deg);
+		}
+		@keyframes wobblehorizontal{
+			16.6% {-webkit-transform:translateX(8px);}
+			33.2% {-webkit-transform:translateX(-6px);}
+			49.8% {-webkit-transform:translateX(4px);}
+			66.4% {-webkit-transform:translateX(-2px);}
+			83% {-webkit-transform:translateX(1px);}
+			100% {-webkit-transform:translateX(0px);}
+		}
+		.wobblehorizontal:hover{
+			-webkit-animation-name:wobblehorizontal;
+			-webkit-animation-duration:1s;
+			-webkit-animation-timing-function: linear;
+			-webkit-animation-iteration-count: 1;
+		}
+		@keyframes wobble-br{
+			16.6% {-webkit-transform:translate(8px,8px);}
+			33.2% {-webkit-transform:translate(-6px,-6px);}
+			49.8% {-webkit-transform:translate(4px,4px);}
+			66.4% {-webkit-transform:translate(-2px,-2px);}
+			83% {-webkit-transform:translate(1px,1px);}
+			100% {-webkit-transform:translate(0px);}
+		}
+		.wobble-br:hover{
+			-webkit-animation-name:wobble-br;
+			-webkit-animation-duration:1s;
+			-webkit-animation-timing-function: linear;
+			-webkit-animation-iteration-count: 1;
+		}
+		@keyframes wobble-top{
+			16.6% {-webkit-transform:skewX(15deg);}
+			33.2% {-webkit-transform:skewX(-15deg);}
+			49.8% {-webkit-transform:skewX(10deg);}
+			66.4% {-webkit-transform:skewX(-10deg);}
+			83% {-webkit-transform:skewX(5deg);}
+			100% {-webkit-transform:skewX(-5deg);}	
+		}
+		.wobble-top:hover{
+			-webkit-transform-origin: bottom;
+			-webkit-animation-name:wobble-top;
+			-webkit-animation-duration:1s;
+			-webkit-animation-timing-function: linear;
+			-webkit-animation-iteration-count: 1;
+		}
+		@keyframes buzz{
+			50%{-webkit-transform: translate(2px) skewX(2deg);}
+			100%{-webkit-transform: translate(-2px) skewY(-2deg);}
+		}
+		.buzz:hover{
+			-webkit-animation-name:buzz;
+			-webkit-animation-duration:0.1s;
+			-webkit-animation-timing-function: linear;
+			-webkit-animation-iteration-count: infinite;
+		}
+	</style>
+</html>

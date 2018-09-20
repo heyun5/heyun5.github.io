@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="card">
+			<div class="box rotate">
+				<div class="fill">rotate</div>
+			</div>
+			<div class="box rotateX">
+				<div class="fill">rotateX</div>
+			</div>
+			<div class="box rotateY">
+				<div class="fill">rotateY</div>
+			</div>
+			<div class="box skew">
+				<div class="fill">skew</div>
+			</div>
+			<div class="box skewX">
+				<div class="fill">skewX</div>
+			</div>
+			<div class="box skewY">
+				<div class="fill">skewY</div>
+			</div>
+			<div class="box scale">
+				<div class="fill">scale</div>
+			</div>
+			<div class="box translate">
+				<div class="fill">translate</div>
+			</div>
+			<div class="card per">
+				<div class="box top">
+					<div class="fill">top</div>
+				</div>
+			</div>
+			<div class="card per">
+				<div class="box left">
+					<div class="fill">left</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<style>
+		body{
+			width: 1200px;
+			height:1200px;
+			border: 1px solid black;
+			margin:0;
+			padding: 10px;
+			
+			
+		}
+		.card{
+			display: inline-block;
+			margin: 10px;
+			background: #fff;
+			padding: 15px;
+			min-width: 200px;
+			/*box-shadow: 0 3px 5px #ddd;*/
+			color: #555;
+		}
+		/*阴影部分*/
+		.card .box{
+			width: 100px;
+			height: 100px;
+			background: #ccc;
+			margin: 20px;
+			position: relative;
+			float: left;
+			/*box-shadow: 0 0 5px #ddd inset;*/
+		}
+		.card .box .fill{
+			width: 100px;
+			height: 100px;
+			background: cornflowerblue;
+			-webkit-transition: all 1s;
+			/*position: relative;*/
+		}
+		 .rotate:hover .fill{
+			transform: rotate(45deg);
+		}
+		 .rotateX:hover .fill{
+			transform: rotateX(45deg);
+		}
+		 .rotateY:hover .fill{
+			transform: rotateX(45deg);
+		}
+		.skew:hover .fill{
+			transform: skew(45deg);
+		}
+		.skewX:hover .fill{
+			transform: skewX(45deg);
+		}
+		.skewY:hover .fill{
+			transform: skewY(45deg);
+		}
+		.scale:hover .fill{
+			transform: scale(1.5);
+		}
+		.translate:hover .fill{
+			transform: translate(100px);
+		}
+		.per{
+			perspective: 100;
+		}
+		.top:hover .fill{
+			transform-origin: top;
+			transform: rotateX(45deg);
+		}
+		.left:hover .fill{
+			transform-origin: left;
+			transform: rotateY(45deg);
+		}
+	</style>
+</html>

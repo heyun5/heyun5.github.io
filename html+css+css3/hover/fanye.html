@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		/*.box{
+			width: 100px;
+			line-height: 40px;
+			background: #ccc;
+			text-align: center;
+			position: relative;
+		}
+		.box:before{
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.4);
+			
+		}
+		.box:hover:before{
+			background: white;
+			width: 20px;
+			height: 20px;
+		}*/
+		
+		
+		.box {
+		  display: inline-block;
+		  position: relative;
+		  width: 100px;
+		  text-align: center;
+		  line-height: 40px;
+		  background: #ddd;
+		}
+		.box:before {
+		  position: absolute;
+		  content: '';
+		  height: 0;
+		  width: 0;
+		  bottom: 0;
+		  left: 0;
+		  background: white;
+		  /*渐变色（渐变方向，起点颜色，终点颜色）*/
+		  background: linear-gradient(45deg, white 45%, #aaa 50%, #ccc 60%, white 80%);
+		}
+		.box:hover:before{
+		  width: 20px;
+		  height: 20px;
+		}
+	</style>
+	<body>
+		<div class="box">left</div>
+	</body>
+</html>

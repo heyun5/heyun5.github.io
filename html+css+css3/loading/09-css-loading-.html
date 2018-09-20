@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		.load{
+			width: 200px;
+			height: 20px;
+			background: #ccc;
+			margin: 50px;
+			position: relative;
+		}
+		.load::before{
+			content:"";
+			position:absolute;
+			display: block;
+			background: blue;
+			background-image:-webkit-gradient(linear,0 100%,100% 0,
+			color-stop(25%,rgba(255,255,255,0.3)),
+		 	color-stop(25%,transparent),
+		 	color-stop(50%,transparent),
+		 	color-stop(50%,rgba(255,255,255,0.3)),
+			color-stop(75%,rgba(255,255,255,0.3)),
+		 	color-stop(75%,transparent)); 
+		 	background-size: 15px 15px;
+		 	width: 50px;
+			height: 10px;
+			top: 50%;
+			animation-name: load;
+			animation-duration:5s;
+			animation-timing-function:ease-in-out;
+			animation-iteration-count: infinite;
+		}
+		@keyframes load{
+			/*20%{transform:translateX(50px);}
+			40%{transform:translateX(100px);}
+			60%{transform:translateX(150px);}
+			100%{transform:translateX(0)}*/
+			form{transform:translateX(0px);}
+			to{transform:translateX(150px);}
+			
+			
+			
+		}
+		
+	</style>
+	<body>
+		<div class="load"></div>
+	</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		.outer{
+			width: 400px;
+			height: 400px;
+			border: 2px solid #FF4500;
+			position: relative;
+			margin: 50px;
+			overflow: hidden;
+		}
+		.outer div{
+			position: absolute;
+			width: 4000px;
+			height: 300px;
+		}
+		.outer img{
+			width: 400px;
+			height: 400px;
+			display: block;
+			float: left;
+		}
+		
+		
+		
+	</style>
+	<body>
+		<div class="outer">
+			<div id="box">
+				<img src="img2/1.jpg" alt="" />
+				<img src="img2/2.jpg" alt="" />
+				<img src="img2/3.jpg" alt="" />
+				<img src="img2/4.jpg" alt="" />
+				<img src="img2/5.jpg" alt="" />
+				<img src="img2/6.jpg" alt="" />
+				<img src="img2/7.jpg" alt="" />
+				<img src="img2/8.jpg" alt="" />
+			
+				
+			
+			
+			</div>
+		</div> <!--  一次性生成同种模式的-->
+		
+		<script type="text/javascript">
+			
+			var box=document.getElementById("box");
+			var left=0;
+			var right=0;
+			var count=-1;   //-1向左，+1向右
+			setInterval(function(){
+				left=left+4*count
+				box.style.left=left+'px';
+				
+				//第一种
+//				if(left<=-2800){
+//					count=1;  //返回第一张的位置
+//				}else if(left>=0){
+//					count=-1
+//				}
+        //第二种
+               if(left<=-2800||left>=0){
+				count*=-1
+			}
+			},10)
+			
+			
+			//
+			
+			
+			
+			
+//			setInterval(function(){
+//				right=right-8
+//				box.style.right=right+"px"
+//				if(right<=-3200){
+//					right=0
+//				}
+//			},50)
+//			
+			
+			
+			
+			
+             if(left==-3200){
+             	setInterval(function(){
+             		left=left+8;
+             		box.style.left=left+"px";
+             		if(left>=-3200){
+             			left=0;
+             		}else if(right==-3200){
+             			right=0
+             		}
+             	},50)
+             }
+
+       
+          
+		</script>
+	</body>
+</html>

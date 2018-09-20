@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#ff{
+			width: 1200px;
+			margin: 10px auto;
+		}
+		.sma{/* 小图样式*/
+			width: 300px;
+			height: 300px;
+			/*border: 1ppx solid red;*/
+			float: left;
+			position: relative;
+		}
+		.sma div{  /* 灰色框样式*/
+			width: 200px;
+			height: 200px;
+			background-color: rgba(0,0,0,0.1);
+			position: absolute;
+			cursor: move;  /*鼠标样式*/
+			display: none;
+			top: 0;
+			left: 0;
+		}
+		.big{/* 大图样式*/
+			width: 500px;
+			height: 500px;
+			float: left;
+			overflow: hidden;
+			position: relative;
+			display: none;
+			border: 1px solid blueviolet;
+		}
+		.big img{
+			position: absolute;
+			display: block;
+			
+		}
+		.pp{
+			width: 300px;
+			height: 300px;
+		}
+		/*.sma .pp{
+			position: absolute;
+		}*/
+		
+		
+	</style>
+	<body>
+		<div id="ff">
+			<div class="sma">
+				<img src="img1/small.jpg" alt="" />
+				<div class="pp"></div>
+			</div>
+			<div class="big">
+				<img src="img1/big.jpg" alt="" />
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var sma=document.getElementsByClassName("sma")[0]
+		var pp=document.getElementsByClassName("pp")[0];
+		var big=document.getElementsByClassName("big")[0];
+		var img=document.getElementsByTagName("img")[1];
+		var maxLeft;
+		var maxTop;
+		//在sma上添加事件监听
+		sma.addEventListener("mouseover",function(){
+			pp.style.display="block";
+			big.style.display='block'
+			
+			//计算pp所能允许的最大的left,top
+			maxLeft=sma.offsetWidth-pp.offsetWidth;
+			maxTop=sma.offsetHeight-pp.offsetHeight;
+			
+		},false)
+		sma.addEventListener("mousemove",function(e){
+			var ppLeft=e.clientX-sma.offsetLeft-pp.offsetWidth/2;
+			var ppTop=e.clientY-sma.offsetTop-pp.offsetHeight/2;
+			//限制pp的左边界和上边界
+			ppLeft = ppLeft <=0 ? 0:ppLeft;
+			ppTop=ppTop<=0? 0:ppTop;
+			//限制右边界，下边界
+			ppLeft=ppLeft>=maxLeft?maxLeft:ppLeft;
+			ppTop=ppTop>=maxTop?maxTop:ppTop;
+			pp.style.left=ppLeft+"px";
+			pp.style.top=ppTop+"px";
+			img.style.left=-ppLeft/maxLeft*400+"px";
+			img.style.top=-ppTop/maxTop*400+"px";
+			
+			
+		},false)
+		//鼠标移出事件
+		sma.addEventListener("mouseout",function(){
+			pp.style.display="none";
+			big.style.display="none"
+		},false)
+		/*
+		 * 
+		 */
+		
+	</script>
+</html>

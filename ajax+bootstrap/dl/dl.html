@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width initial-scale=1.0 user-scalable=no"/>
+		<link rel="stylesheet" href="lib/css/bootstrap.css" />
+	</head>
+	<style>
+ 		.container-fluid{
+			width: 400px;
+			height: 300px;
+			margin-top: 50px;
+			/*border: 1px solid black;*/
+			box-shadow: 0px 0px 15px #00008B;
+			background: cornflowerblue;
+		}
+		/*图标左端*/
+		.form-horizontal .has-feedback .form-control-feedback{
+			left: 15px;
+		}
+		/*输入框的缩进*/
+		.has-feedback .form-control{
+		padding-left:32.5px;
+	}
+	/*.form-horizontal{
+		margin-top: 50px;
+	}*/
+	h4{
+		font-weight: bold;
+	}
+	button[type="submit"]{
+		left: 100px;
+		margin: 0 10px;
+	}
+	input[type="reset"]{
+		left: 100px;
+		margin: 0 10px;
+	}
+	</style>
+	<body>
+		<div class="container-fluid">
+			
+			<form class="form-horizontal">
+			<h4 class="text-center">登录管理后台</h4>
+				
+				<div class="form-group has-feedback form-group-sm">
+						<label class="control-label col-sm-3 hidden-xs">账号:</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" name="username"/>
+							<span class="glyphicon glyphicon-user colored form-control-feedback"></span>
+						</div>
+				</div>
+				<div class="form-group has-feedback">
+					<label class="control-label col-sm-3 hidden-xs">密码:</label>
+					<div class="col-sm-9">
+						<input type="password" class="form-control" name="password"/>
+						<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+					</div>
+			    </div>
+			    <div class="form-group has-feedback">
+			    	<label class="control-label col-sm-3 hidden-xs">验证码：</label>
+			    	<div class="col-sm-5">
+				    	<input type="text" id="sryz"class="form-control" data-container="body" data-toggle="tooltip" data-placement="left" title="不能为空">	
+			    		<div></div><label id="l1"></label>
+			    	</div>
+				    <div class="col-sm-4">
+				    	<div class="form-control" id="inp"></div>
+				    	<span class="glyphicon glyphicon-picture form-control-feedback"></span>
+			    	</div>
+			    </div>
+			   
+				<div class="form-group">
+					<!--<div class=" col-xs-4">-->
+					<button type="submit" data-loading-text="正在登录" class="btn btn-info btn-md col-md-3"id="dl" value="登录" />登录</button>
+					<!--</div>-->
+					<!--<div class='col-xs-4'>-->
+					<input type="reset" class="btn btn-danger btn-md col-md-3" value="清除" />
+					<!--</div>-->
+				</div>
+			</form>
+			<div class="modal fade" role="dialog">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+					  <div class="modal-header"><span>&times;</span></div>
+					  <div class="modal-body">登录成功</div>
+						<div class="modal-footer">
+			
+						</div>
+			    </div>
+			  </div>
+			</div>
+		</div>
+		<script src="lib/js/jquery-3.3.1.js"></script>
+		<script src="lib/js/bootstrap.js"></script>
+		<script src="lib/jquery.validate.min.js"></script>
+	</body>
+	<script type="text/javascript">
+		$(function (){
+			$('[data-toggle="tooltip"]').tooltip();
+				var code;
+			function createCode(){
+				code="";
+				var random=new Array(0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
+				for(var i=0;i<4;i++){
+					var index=Math.floor(Math.random()*36);
+					code+=random[index];
+				}
+				$("#inp").text(code);
+			}
+					createCode()
+				$("#inp").bind("click",function(){
+					createCode()
+				})
+				$("#dl").bind("click",function(){
+					var oValue=$("#sryz").val().toUpperCase();//验证码输入框
+					//console.log(oValue)
+					$("#l1").html("")
+					if(oValue==""){
+						$("#l1").html("请输入")
+					}else if(oValue!=code){
+						$("#l1").html("验证码错误")
+					}else{
+						$("#l1").html("验证码正确")
+					}
+				})
+		})	
+		//验证登录信息
+		$(function(){
+			$('form').validate({
+			rules:{
+				username:{
+					required:true,
+					rangelength:[3,20]
+				},
+				password:{
+					required:true,
+					rangelength:[5,10]
+				}
+			},
+			messages:{
+				username:{
+					required:"账号不能为空",
+					rangelength:"长度为3-20"
+				},
+				password:{
+					required:"密码不能为空",
+					rangelength:"长度为5-10"
+				}
+			},
+			
+			//验证通过时触发的函数
+			unhighlight:function(element,error,errorClass){
+					$(element).tooltip('destroy');
+				},
+			errorPlacement:function(error,element){
+					if($(element).next('div').hasClass('tooltip')){
+						$(element).attr('data-original-title',error.text()).tooltip();
+					}else{
+						$(element).attr('title',error.text()).tooltip('show');
+					}
+				},
+			//提交
+			submitHandler:function(e){
+				$("[type='submit']").button("loading");
+				$.post('http://192.168.15.2/gz0820web/login',$(e).serializeArray(),function(data){
+				$('.modal-body').html(data.msg);
+						$('.modal').modal();
+						if(data.status!=1){
+							$('type=submit').button('reset');
+							return false;
+						}else{
+							setInterval(function(){
+								location.href="user.html";
+							},2000);
+						}
+					},'json');
+					return false;
+				}
+			
+			});
+		});
+	</script>
+</html>

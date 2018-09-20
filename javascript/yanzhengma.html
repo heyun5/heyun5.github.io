@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		div{
+			width: 60px;
+			height: 30px;
+			background-color: darkgreen;
+			text-align: center;
+		}
+	</style>
+	<body>
+		<div></div>
+		<a href="">看不清，换一个</a>
+		<script type="text/javascript">
+			//生成验证码
+			//生成一个【m,n】的随机整数；
+
+			function tt(m,n){
+				return parseInt(Math.random()*(n-m+1)+m);
+			}
+	
+			function rs(){
+				var arr=[];
+				var reg=/0-9A-Za-z{6}$/gi
+				console.log(reg.test(arr))
+				for(var i=0;i<6;i++){
+					arr[i]=tt(0,9)
+				}
+				return arr
+			}
+			//调用函数
+			var arr=rs();
+			document.getElementsByTagName("div")[0].innerHTML=arr.join("")
+			document.getElementsByTagName("a")[0].onclick=function(){
+				var arr =rs();
+				document.getElementsByTagName("div")[0].innerHTML=arr.join("");
+				return false
+			}
+		</script>
+	</body>
+</html>

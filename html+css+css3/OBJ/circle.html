@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>小球弹跳</title>
+	</head>
+	<body>
+		<div class="box">
+			<div class="cir"></div>
+		</div>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box{
+				width: 400px;
+				height: 400px;
+				border: 2px solid black;
+				position: relative;
+			}
+			.cir{
+				width: 25px;
+				height: 25px;
+				background: blue;
+				border-radius: 50%;
+				position: absolute;
+				top: 100px;
+				left: 90px;
+			}
+		</style>
+		<script>
+			var cir=document.querySelector(".cir");
+			var cirStyle=cir.currentStyle ? cir.currentStyle : window.getComputedStyle(cir,null)
+			var cirX=parseInt(cirStyle.width);
+			var cirY=parseInt(cirStyle.height);
+			var posX=parseInt(cirStyle.left);
+			var posY=parseInt(cirStyle.top);
+			var range=400;
+			var speed=5;
+			var speedX=5;
+			var speedY=3;
+			
+			//小球移动的函数
+			var move = function(){
+				posX += speedX;
+				posY += speedY;
+				cir.style.left=posX+"px";
+				cir.style.top=posY+"px";
+//				console.log(posY)
+			};
+			
+			var direction=undefined;
+			//小球弹跳函数
+			var checkCol =function(){
+				if(posX<=0 || posX>=400-20){
+					speedX = -speedX;
+					console.log(speedX)
+					console.log(posX)
+				}else if(posY<=0 || posY>=400-20){
+					speedY = -speedY;
+				}
+			};
+			//根据键值改变小球弹跳方向
+			document.body.onkeydown=function(e){
+				switch(e.keyCode){
+					
+					 case 37:
+		                speedX = -Math.abs(speedX);
+		                break;
+		            case 38:
+		                speedY = -Math.abs(speedY);
+		                break;
+		            case 39:
+		                speedX = Math.abs(speedX);
+		                break;
+		            case 40:
+		                speedY = Math.abs(speedY);
+		                break;
+				}
+			};
+			setInterval(function(){
+				checkCol();
+				move();
+			},100);
+		</script>
+	</body>
+</html>

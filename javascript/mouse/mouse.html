@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		
+		body{
+			width: 900px;
+			margin: 0 auto;  /*居中*/
+		}
+		.box{
+			height: 600px;
+			background-color: dimgray;
+			border:1px solid red;
+			text-align: center;
+			position: relative;/*相对父级元素定位*/
+			
+		}
+		div input{
+			width: 100px;
+			height: 30px;
+			border: 1px dashed black;
+			background-color: pink;
+			outline: none;
+			border-radius: 5px;
+		}
+		div input:first-of-type{
+			margin-left: 350px;
+		}
+		
+	</style>
+	<body>
+		<div class="box" id="box"></div>
+		<div>
+			<input type="button" value="开始" />
+			<input type="button"  value="暂停" />
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		//获取input的元素
+		var flag=false;
+		var btn1=document.querySelectorAll("input")[0];
+		var btn2=document.querySelectorAll("input")[1]
+		
+		//创建地鼠  ===>定时器
+		function createMouse(){
+			var mouseImg=document.createElement("img")   //创建元素节点
+			mouseImg.setAttribute("src","img/mouse.png")
+			//设置图片样式
+			mouseImg.style.width="100px";
+			mouseImg.style.height="100px";
+			mouseImg.style.position="absolute"
+		
+		
+		//对地鼠设置点击事件
+		mouseImg.onclick=function(){
+			//把图片从dom中移除
+			this.parentElement.removeChild(this);
+		  }
+		return mouseImg
+		
+		}
+		//反复创建地鼠
+		var timeId
+		function reCreateMouse(){
+			timeId=setInterval(function(){
+				//随机数确定地鼠的位置
+				var mouse=createMouse();
+				var left=randomInt(0,800);
+				var top=randomInt(0,500);
+				mouse.style.left=left+"px";
+				mouse.style.top=top+"px";
+				box.appendChild(mouse)
+				
+				
+				//判断游戏是否结束
+				judgeGameOver()
+			},500)
+		}
+		
+		//生成随机数
+		function randomInt(m,n){
+			return parseInt(Math.random()*(n-m+1)+m)
+		}
+		
+		
+		
+		
+		//游戏结束，清除地鼠
+		function judgeGameOver(){
+			var mouseCount=box.childElementCount
+			if(mouseCount>=10){
+				clearInterval(timeId)
+			
+			timeId=0
+			for(var i=0;i<mouseCount;i++){
+				box.removeChild(box.children[0]);//在消除之后，在第一个元素之后追加元素
+			}
+			//结束图片
+			var endImg=document.createElement("img")
+			endImg.src="img/end.png";
+			endImg.style.position="absolute";
+			endImg.className="end";
+			endImg.style.width="400px";
+			endImg.style.height="300px";
+			endImg.style.left="300px";
+			endImg.style.top="200px"
+			
+			box.appendChild(endImg);
+			flag=true;
+			//如果游戏结束，btn1的值设为：重新开始
+			btn1.value="重新开始"
+		}
+	}
+		//给按钮设置点击事件
+		btn1.onclick=function(){
+			if(timeId){
+				return
+			}
+			//遍历，点击开始按钮时，，先清除所有地鼠
+			for(var i=0;i<box.children.length;i++ ){
+					box.removeChild(box.children[i])
+				}
+			if(this.value=="重新开始"){
+				//重新创建地鼠
+				reCreateMouse()
+				flag=false;
+				this.value="开始"
+			}else if(this.value=="开始"){
+				reCreateMouse();
+				this.value="重新开始"
+			}
+		}
+		
+		
+		
+		//点击按钮开始
+		//点击按钮暂停
+		btn2.onclick=function(){
+			if(flag){
+				return
+			}
+			if(this.value=="暂停"){
+				clearInterval(timeId)
+				this.value="继续"
+			}else if(this.value=="继续"){
+				reCreateMouse();
+				this.value="暂停"
+			}
+		}
+		
+		
+		
+
+	</script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		div{
+			width: 800px;
+			height: 100px;
+			text-align: center;
+			margin: 20px auto;
+			background-color: pink;
+			border: 1px solid black;
+		}
+	</style>
+	<body>
+		<div id="box">
+			
+		</div>
+		<script>
+			window.onload=function show(){
+				var box=document.getElementById("box");
+				setInterval(function(){
+					var date=new Date();
+					box.innerHTML=date.getFullYear()+"年"+date.getMonth()+"月"+date.getDate()+"日"+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
+			        setTimeout(show,100) //刷新
+				},0)//0表示立即执行，实际上不会立即执行
+			}
+		</script>
+	</body>
+</html>

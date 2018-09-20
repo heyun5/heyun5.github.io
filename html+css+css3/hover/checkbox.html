@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		.switch{
+			display: inline-block;
+		}
+		.switch input {
+			display: none;
+		}
+		.switch .slider{
+			line-height: 40px;
+			background: #ccc;
+			font-size: 12px;
+			padding: 0px 20px 0px 10px;
+		}
+		.switch .slider:before {
+			content: "";
+			width: 16px;
+			height: 16px;
+			margin-top:-2px ;
+			margin-right: 5px;
+			background: #00FFFF;
+			display: inline-block;
+			
+		}
+			.switch input:checked + .slider {
+				background: lightblue;
+			}
+			.switch input:checked + .slider:before {
+				background: red;
+			}
+		
+	</style>
+	<body>
+		<label class="switch">
+			<input type="radio" name="sex" />
+			<div class="slider">男</div>
+		</label>
+		<label class="switch">
+			<input type="radio" name="sex"/>
+			<div class="slider">女</div>
+		</label>
+		<hr />
+		<label class="switch">
+			<input type="checkbox" name="hobby"/>
+			<div class="slider">爱好1</div>
+		</label>
+		<label class="switch">
+			<input type="checkbox" name="hobby"/>
+			<div class="slider">爱好2</div>
+		</label>
+	</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			/*padding: 0;*/
+		}
+		#box{
+			width: 600px;  /*
+			                * 不能为正方形的边框，会影响小球的随机路径*/
+			height: 500px;
+			background-color: gray;
+			border: 1px solid royalblue;
+			margin:auto;
+			position: relative;
+		}
+		#circle{
+			width: 50px;
+			height: 50px;
+			background-color: goldenrod;
+			border-radius: 50%;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	</style>
+	<body>
+		<div id="box">
+			<div id="circle"></div>
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+		var box=document.getElementById("box");
+		var circle=document.getElementById("circle");
+		var x=0;
+		var y=0;
+		var xtt=1;
+		var ytt=1;
+		//设置定时器，移动小球的位置
+		setInterval(function(){
+			if(x>550||x<0){  //超出范围的位置变化
+				xtt=-xtt;
+			}
+			if(y>450||y<0){
+				ytt=-ytt
+			}
+			x +=xtt;
+			y +=ytt;
+			circle.style.left=x+"px";
+			circle.style.top=y+"px"
+		},10)
+	</script>
+</html>

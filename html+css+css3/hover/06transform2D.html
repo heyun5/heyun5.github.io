@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="box">
+			<div class="main">
+				<div class="a">a</div>
+				<div class="b">b</div>
+				<div class="c">c</div>
+				<div class="d">d</div>
+				<div class="e">e</div>
+				<div class="f">f</div>
+				
+			</div>
+		</div>
+	</body>
+	<style>
+		.box{
+			perspective: 500px;
+			margin: 50px;
+			padding: 50px 50px;
+			position: relative;
+			-webkit-transform-origin: 50% 50%;
+		}
+		.main{
+			width: 200px;
+			height: 200px;
+			/*background: #ccc;*/
+			/*position: relative;*/
+			transform-style: preserve-3d;
+			/*transform: rotateY(75deg);*/
+			transition: all 3s;
+		}
+		@keyframes hun{
+			/*50%{-webkit-transform: rotateX(1turn) rotateY(1turn);}*/
+			/*50%{-webkit-transform: rotateX(1turn) rotateY(1turn) rotateZ(1turn);}*/
+			/*0%{
+			    transform:rotateX(0deg) rotateY(0deg);
+			  }
+			50%{
+			    transform:rotateX(360deg) rotateY(0deg);    
+			  }
+			100%{
+			    transform:rotateX(360deg) rotateY(360deg);
+			  }*/
+			  0%{
+    -webkit-transform:rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  33.33%{
+     -webkit-transform:rotateX(360deg) rotateY(0deg)  rotateZ(0deg);    
+  }
+  66.66%{
+     -webkit-transform:rotateX(360deg) rotateY(360deg)  rotateZ(0deg);
+  }
+  100%{
+     -webkit-transform:rotateX(360deg) rotateY(360deg)  rotateZ(360deg);
+  }
+		}
+		.main:hover{
+			
+			-webkit-animation-name:hun;
+			-webkit-animation-duration:5s;
+			-webkit-animation-timing-function: ease-out;
+			-webkit-animation-iteration-count: 2;
+		}
+		.a{
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+			margin: 20px;
+			transform-origin: 50% 0 0 ;
+			transform: rotateX(90deg);
+		}
+		.b{
+			width: 100px;
+			height: 100px;
+			background: green;
+			position: absolute;
+			margin: 20px;
+			transform-origin: 0 50% 0 ;
+			transform: rotateY(-90deg);
+		}
+		.c{
+			width: 100px;
+			height: 100px;
+			background: blue;
+			position: absolute;
+			margin: 20px;
+			transform-origin: 100% 50% 0 ;
+			transform: rotateY(90deg);
+		}
+		.d{
+			width: 100px;
+			height: 100px;
+			background: yellow;
+			position: absolute;
+			margin: 20px;
+			transform-origin: 50% 100% 0 ;
+			transform: rotateX(-90deg);
+		}
+		.e{
+			width: 100px;
+			height: 100px;
+			background:pink;
+			position: absolute;
+			margin: 20px;
+			/*transform-origin: 50% 100% 0 ;*/
+			transform: translateZ(100px);
+		}
+		.f{
+			width: 100px;
+			height: 100px;
+			background:black;
+			position: absolute;
+			margin: 20px;
+		}
+		
+	</style>
+</html>
