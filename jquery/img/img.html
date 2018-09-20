@@ -1,0 +1,63 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片切换</title>
+	<script type="text/javascript" src="jquery-3.3.1.js">
+		
+	</script>
+	<style>
+		div{
+			width:200px;
+			height:200px;
+			background:#ccc;
+			float:left;
+		}
+		ul{
+			list-style: none;
+			float:left;
+			width:20px;
+			padding-left:10px;
+		}
+		ul li{
+			width:60px;
+			height:60px;
+			margin-top:5px;
+			background-color: #ddd;
+		}
+		ul li img{
+			width: 60px;
+			height: 60px;
+		}
+		div img{
+			width: 200px;
+			height: 200px;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<ul>
+		<li><img src="imgs/01.jpg"/></li>
+		<li><img src="imgs/02.jpg"/></li>
+		<li><img src="imgs/03.jpg"/></li>
+	</ul>
+	<script type="text/javascript">
+		$(function(){
+			$("ul li:eq(0)").click(function(){
+				$("div").empty()
+				$("div").append("<img src='imgs/01.jpg'/>")
+			})
+			$("ul li:eq(1)").click(function(){
+				$("div").empty()  //在点击第二张之前将div中的内容移除
+				$("div").append("<img src='imgs/02.jpg'/>")
+			})
+				$("ul li:eq(2)").click(function(){
+					$("div").empty()////在点击第三张之前将div中的内容移除
+				$("div").append("<img src='imgs/03.jpg'/>")
+			})
+		})
+	</script>
+</body>
+</html>

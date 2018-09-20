@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="jquery-3.3.1.js"></script>
+	</head>
+	<style>
+		ul{
+			list-style: none;
+			width: 100px;
+			/*border: 1px solid blue;*/
+			padding: 0px;
+		}
+		ul.box>li>a{
+			display: block;
+			background: lightgray;
+		}
+		ul.box>li>ul{
+			display: none;
+		}
+	</style>
+	<body>
+		<ul class="box">
+		  <li>
+			<a href="#" id="usertt">用户信息</a>
+			<ul class="a">
+				<li><a href="#">用户姓名</a></li>
+				<li><a href="#">用户账号</a></li>
+				<li><a href="#">用户资料</a></li>
+			</ul>
+		  </li>
+		  <li>
+			<a href="#" id="users">用户好友</a>
+			<ul class="b">
+				<li><a href="#">好友账号</a></li>
+				<li><a href="#">好友头像</a></li>
+				<li><a href="#">好友资料</a></li>
+			</ul>
+		  </li>
+		  <li>
+			<a href="#" id="u">个人钱包</a>
+			<ul class="c">
+				<li><a href="#">钱包金额</a></li>
+				<li><a href="#">钱包大小</a></li>
+				<li><a href="#">钱包信息</a></li>
+			</ul>
+		  </li>
+		  
+		</ul>
+		<script type="text/javascript">
+			$(function(){
+				/*$("li a#usertt").click(function(){
+					$("ul.a").css("display","block")
+				})
+				$("li a#usertt").blur(function(){
+					$("ul.a").css("display","none")
+				})
+				$("li a#users").click(function(){
+					$("ul.b").css("display","block")
+				})
+				$("li a#users").blur(function(){
+					$("ul.b").css("display","none")
+				})
+				$("li a#u").click(function(){
+					$("ul.c").css("display","block")
+				})
+				$("li a#u").blur(function(){
+					$("ul.c").css("display","none")
+				})*/
+				$("ul.box>li").click(function(){
+					$(this).siblings("li").children("ul").slideUp()
+					$(this).children("ul").slideDown()
+				})
+//				$("ul.box>li").blur(function(){
+//					$("ul a").css("display","none")
+//				})
+			})
+		</script>
+	</body>
+</html>

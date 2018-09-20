@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="./jquery-3.3.1.js"></script>
+		<script type="text/javascript" src="省市.js"></script>
+	</head>
+	<body>
+		<form action="">
+			<lable>城市名称</lable>
+			<lable>所属</lable>
+			<select id="province">
+				<option>省</option>
+			</select >
+			<select id="city">
+				<option>市</option>
+			</select>
+			<select id="area">
+				<option>区/县</option>
+			</select>
+			
+		</form>
+
+		<script type="text/javascript">
+			/*$(function(){
+				var pro=""
+				var shi=""
+				var qu=""
+				//省
+				for(var i in citiesall){
+					pro+="<option>"+citiesall[i].name+"</option>";
+//					 console.log(pro)
+					//市
+
+					var cityName=citiesall[i]["city"];
+					for(var j in cityName){
+						shi+="<option>"+cityName[j].name+"</option>"
+//						console.log(shi)
+						//区
+						var cityArea=cityName[j]["area"]
+						for(var z in cityArea){
+							qu+="<option>"+cityArea[z]+"</option>"
+//							console.log(qu)
+						}
+					}
+				}
+				$("select:eq(0)").html(pro);
+				$("select:eq(1)").html(shi);
+				$("select:eq(2)").html(qu)
+				//联动
+				$("select:eq(1)").change(function(){
+					var getPro=$(this).val();
+					for(var z in cityName){
+						if(cityName[z].name==getPro){
+							var areas="";
+							var cityArea=cityName[z]["area"];
+							for(var x in cityArea){
+								areas+="<option>"+cityArea[x]+"</option>";
+							}
+							$("select:eq(2)").html(areas)
+						}
+					}
+				})
+			})*/
+			$(function(){
+				var proStr=""
+				for(var i in citiesall){
+					proStr+="<option>"+citiesall[i].name+"</option>";//取到对应的市
+	
+				}
+				$("#province").html(proStr).change(function(){   //链式调用
+					var proName=$(this).val();
+					for(var j in citiesall){
+						//查找省份
+						if(citiesall[j].name==proName){
+							//找出city
+							var citys=citiesall[j].city;
+							var cityStr=""
+							for(var n in citys){
+								cityStr+="<option>"+citys[n].name+"</option>"
+//								console.log(cityStr)   //打印省级
+							}
+							$("#city").html(cityStr).change(function(){
+								var cityName=$(this).val();
+								for(var m in citys){
+									if(citys[m].name==cityName){  //判断
+										var areas=citys[m].area
+										var areaStr=""
+										for(var x in areas){
+											areaStr+="<option>"+areas[x]+"</otpion>"
+										}
+										$("#area").html(areaStr)
+									}
+								}
+							})
+						}
+					}
+					
+				})   
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="jquery-3.3.1.js"></script>
+	</head>
+	
+	<body>
+		<button>生成表格</button>
+		<script type="text/javascript">
+			$(function(){
+				/*var data={"百度":["百度图片","百度搜索"],"谷歌":["goole","谷歌图片"]}
+				var body=$("body")
+				$("button").click(function(){
+					var tb=$("<table border='1'>").appendTo(body)
+					for(var i in data){
+					 $("<tr><td>"+i+"</td><td>"+
+					 "<td>"+data[i]+"</td>"+
+					 "<td>"+data[i]+"</td></tr>").appendTo(tb)
+					
+					}
+					
+				})*/
+				var table=$("<table/>",{
+					//标签属性
+					border:1,
+					rules:"all",
+					cellpadding:10
+				}).appendTo("body")
+ 				var thead=$("<thead/>").appendTo(table);
+				var tbody=$("<tbody/>").appendTo(table);
+				var tr=$("<tr/>").appendTo(thead);
+				//对象
+			    for(var i=1;i<=10;i++){
+			    	$("<th/>").html("表头"+i).appendTo(tr)
+			        var trs=$("<tr/>").appendTo(tbody);
+			        for(var j=1;j<=10;j++){
+			        	$("<td/>").html(i+"行"+j+"列").appendTo(trs)
+			        }
+			    }
+			
+			
+			
+			})
+			
+			
+			
+			
+			
+			
+//			$(function () {
+//          var dict = { '百度': 'http://www.baidu.com', '163': 'http://www.163.com', '新浪': 'http://www.sina.com.cn' }
+//          $('#btn').click(function () {
+//              var tbObj = $('<table border="1"></table>').appendTo($('body'));
+//              for (var key in dict) {
+//                  $('<tr><td>'+key+'</td><td>'+'<a href='+dict[key]+'>'+key+'</a></td></tr>').appendTo(tbObj);
+//              }
+//          })
+//      })
+		</script>
+		
+	</body>
+</html>

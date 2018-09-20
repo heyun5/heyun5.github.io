@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="./jquery-3.3.1.js">
+			
+		</script>
+	</head>
+	<body>
+		<form >
+		<label >爱好</label>
+		<input type="checkbox"  />篮球
+		<input type="checkbox"  />足球
+		<input type="checkbox"  />羽毛球
+		<input type="checkbox"  />乒乓球
+		<a href="javascript:void(0)" id="qx">全选</a>
+		<a href="javascript:void(0)/" id="qbx">全不选</a>
+		<a href="javascript:void(0)" id="fx">反选</a>
+		</form>
+	<div>
+	<input type="checkbox" checked/>同意网络协议
+	<input type="checkbox" checked/>同意服务协议
+	<b>不同意</b>
+	</div>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				
+			
+			//全选
+			$("#qx").click(function(){
+				$(":checkbox").prop("checked",true)
+			})
+			//全不选
+			$("#qbx").click(function(){
+				$(":checkbox").prop("checked",false)
+			})
+		    //反选
+		    $("#fx").click(function(){
+		    	$(":checkbox").each(function(){
+		    	this.checked=!this.checked
+		       })
+		    })
+		    //不同意按钮
+		    $("div b").click(function(){
+		    	$(":checked").each(function(){
+		    		this.checked=!this.checked
+		    	})
+		    })
+		 })   
+		    
+		</script>
+	</body>
+</html>
