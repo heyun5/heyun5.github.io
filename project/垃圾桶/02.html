@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.3.1.js"></script>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background: #ccc;
+		}
+		.box{
+			width: 256px;
+			height: 256px;
+			bottom: 0px;
+			right: 0px;
+			background: blueviolet;
+			position:absolute;
+		}
+		img{
+			position: absolute;
+		}
+	</style>
+	<body>
+		<div class="box"></div>
+	</body>
+	<!--
+		.each()===遍历对象，给每个匹配元素执行函数
+		offset()==相对于当前元素
+		page()====相对于浏览器页面
+		append()==添加，先选中再创建
+	-->
+	<script>
+		$(function(){
+			//存放图片
+			var imgArr=["icon1.png","icon2.png","icon3.png","icon7.png","icon4.png","icon6.png"];
+			$(imgArr).each(function(index,el){
+				//创建img标签,图片随机放置
+				var img=$("<img/>").attr("src","img/"+el).css({
+					left:Math.floor(Math.random()*800),
+					top:Math.floor(Math.random()*400)
+				})
+				//img标签添加
+				$("body").append(img)
+			})
+			//鼠标事件
+			var pos={x:0,y:0};
+			var isMousedown=false;
+			var imgNow=null;
+			$("img").on("mousedown",function(e){
+				pos.x=e.pageX-$(this).offset().left;
+				pos.y=e.pageY-$(this).offset().top;
+				isMousedown=true;
+				imgNow=this;
+				return false;
+			})
+			$(document).on("mousemove",function(e){
+				if(!isMousedown)  return;
+				var x=e.pageX-pos.x;
+				var y=e.pageY-pos.y;
+				$(imgNow).css({
+					left:x,
+					top:y
+				})
+			}).on("mouseup",function(e){
+				isMousedown=false;
+				//box坐标的获取
+				var boxPos=$(".box").offset();
+				var imgPos=$(imgNow).offset();
+				if(boxPos.left+30<=imgPos.left&&boxPos.top+20<=imgPos.top){
+					$(imgNow).remove();  //删除图片
+				}
+			})
+		})
+	</script>
+</html>
