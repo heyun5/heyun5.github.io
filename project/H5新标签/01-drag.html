@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!DOCTYPE HTML>
+<html>
+	<!--实现两者之间互换，缺少将一张图片分割，随机放置-->
+<head>
+    <style type="text/css">
+    	.container{
+    		width: 352px;
+    		height: 352px;
+    		margin: 0 auto;
+    		border: 1px solid black;
+    	}
+        #div1,#div2,#div3,#div4,#div5,#div6,#div7,#div8,#div9{
+        	width:105px; 
+        	height:105px;
+			/*margin: 10px;*/
+			padding: 5px;
+			float: left;
+        	 border:1px solid #aaaaaa;}
+    </style>
+    <script type="text/javascript">
+        function allowDrop(ev){
+            ev.preventDefault();
+        }
+        var srcdiv = null;
+        //被拖对象
+        function drag(ev,divdom){
+            srcdiv=divdom;
+            ev.dataTransfer.setData("text/html",divdom.innerHTML);
+        }
+        //放置
+        function drop(ev,divdom){
+            ev.preventDefault();
+            //判断两者之间
+            if(srcdiv != divdom){
+                srcdiv.innerHTML = divdom.innerHTML;
+                divdom.innerHTML=ev.dataTransfer.getData("text/html");
+            }
+//          console.log(divdom.innerHTML)  //拖动的图片
+//          console.log(ev)  //drag对象
+//      	console.log(srcdiv)  //从哪
+//      	console.log(divdom)  //到哪
+            
+        }
+    </script>
+	</head>
+	<body>
+	<div class="container">
+		<div id="div1" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		    <img src="images/01.jpg" width="100"height="100"alt="" />
+		</div>
+		<div id="div2" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		  <img src="images/02.jpg" width="100"height="100"alt="" />
+		</div>
+		<div id="div3" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		  <img src="images/04.jpg" width="100"height="100"alt="" />
+		</div>
+		<div id="div4" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		  <img src="images/05.jpg" width="100"height="100"alt="" />
+		</div>
+		<div id="div5" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		  <img src="images/06.jpg" width="100"height="100"alt="" />
+		</div>
+		<div id="div6" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		  <img src="images/07.jpg" width="100"height="100"alt="" />
+		</div>
+		<div id="div7" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		  <img src="images/08.jpg" width="100"height="100"alt="" />
+		</div>
+		<div id="div8" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		  <img src="images/05.jpg" width="100"height="100"alt="" />
+		</div>
+		<div id="div9" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		  <img src="images/03.jpg" width="100"height="100"alt="" />
+		</div>
+	</div>
+	</body>
+</html>

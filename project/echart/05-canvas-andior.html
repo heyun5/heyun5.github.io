@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <canvas id="can" width="500" height="500" style="border:1px solid black"></canvas>
+    </body>
+    <script>
+        var can=document.getElementById("can");
+        var ctx=can.getContext("2d");
+        
+        rob()
+        function rob(){
+            var color="green";
+            ctx.save();
+            ctx.fillStyle=color;
+            head(100,100,50)
+            eye(80,80,8)
+            eye(120,80,8)
+            body(50,105,100,100)
+            hand(25,120,20,50)
+            hand(155,120,20,50)
+            foot(70,200,20,20)
+            foot(110,200,20,20)
+            hhLeft()
+            hhRight()
+            function head(x,y,r){
+                ctx.beginPath();
+                ctx.arc(x,y,r,0,Math.PI,true);
+                ctx.fill();
+            }
+            function eye(x,y,r){
+                ctx.fillStyle="white";
+                ctx.beginPath();
+                ctx.arc(x,y,r,0,2*Math.PI,true);
+                ctx.fill()
+            }
+            function body(x,y,w,h){
+                ctx.fillStyle="green"
+                ctx.beginPath();
+                ctx.fillRect(x,y,w,h);
+                ctx.fill()
+            }
+            function hand(x,y,w,h){
+                ctx.beginPath();
+                ctx.fillRect(x,y,w,h);
+                
+                ctx.fill();
+            }
+            function foot(x,y,w,h){
+                ctx.beginPath();
+                ctx.fillRect(x,y,w,h);
+                ctx.arc(80,220,10,0,2*Math.PI,true)
+                ctx.arc(120,220,10,0,2*Math.PI,true)
+                ctx.fill();
+            }
+            //触角
+            function hhLeft(){
+                ctx.strokeStyle=color
+                ctx.beginPath();
+                ctx.lineWidth="10";
+                ctx.moveTo(60,50);
+                ctx.lineTo(75,60);
+                ctx.stroke()
+            }
+            function hhRight(){
+                ctx.strokeStyle=color
+                ctx.beginPath();
+                ctx.lineWidth="10";
+                ctx.moveTo(140,50);
+                ctx.lineTo(125,60);
+                ctx.stroke()
+            }
+            
+        }
+    </script>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	 <style type="text/css">
+	 	*{
+	 		margin: 0;
+	 		padding: 0;
+	 	}
+	 	body{
+	 		width: 900px;
+	 		margin: 0,auto;
+	 		
+	 	}
+	 	.box{
+	 		height: 600px;
+	 		border: 1px solid red;
+	 		position: relative;
+	 		background-color: gray;
+	 		text-align: center;
+	 		
+	 		
+	 		
+	 		
+	 	}
+	 	div input{
+	 		width: 100px;
+	 		height: 30px;
+	 		border: none;
+	 		background-color: orange;
+	 		background: linear-gradient(to bottom,red,yellow);
+	 		border-radius: 5px;
+	 		outline: none;
+	 		
+	 		
+	 	}
+	 	div input:first-of-type{
+	 		margin-left: 300px;
+	 	}
+	 </style>
+	<body>
+		<div class="box" id="box"></div>
+		<div>
+			<input type="button" value="开始" />
+			<input type="button" value="暂停" />
+		</div>
+			
+			
+		
+		<script type="text/javascript">
+			var flag=false;
+			var btn0=document.querySelectorAll("input")[0]
+			var btn1=document.querySelectorAll("input")[1]
+			
+			//创建地鼠函数
+			function createMouse(){
+				var mouseImg=document.createElement("img");
+				mouseImg.setAttribute("src","img/mouse.png");
+//				return mouseImg;
+				//设置图片的样式
+				mouseImg.style.width="100px";
+				mouseImg.style.height="100px";
+				mouseImg.style.position='absolute';
+				
+				
+				//对生成的老鼠设置点击事件
+               	mouseImg.onclick=function(){
+               		//把img标签从DOM移除
+               		this.parentElement.removeChild(this)
+               	}
+               	return mouseImg
+			}
+			
+			
+			
+			var intervalId
+			function rePeatCreateMouse(){
+				//反复创建地鼠函数
+				//设置定时器，创建地鼠
+				intervalId=window.setInterval(function(){
+					var mouse =createMouse()
+					
+					//随机数确定位置
+					var left=randomInt(0,800);
+					var top=randomInt(0,500)
+					mouse.style.left=left+"px";
+					mouse.style.top=top+"px";
+					box.appendChild(mouse);
+					
+					//判断老鼠的数量，并决定是否结束游戏
+					judgeGameOver()
+					
+				},500)
+			}
+			
+			//生成随机数函数
+            function randomInt(m,n){
+          	    return parseInt(Math.random()*(n-m+1)+m);
+            }
+			//让游戏结束
+			function judgeGameOver(){
+				var mouseCount=box.childElementCount
+				//如果老鼠数量超过10，游戏结束
+				if(mouseCount>=10){
+					//结束周期任务
+					window.clearInterval(intervalId)
+					//清空所有的老鼠
+					/*
+					 * 虽然intervalId已经被清空，但仍然是1，所以要设置intervalId=0
+					 * 
+					 */
+					console.log("intervalId="+intervalId)
+					intervalId=0;
+					//清除所有的老鼠
+					for(var i=0;i<mouseCount;i++){
+						box.removeChild(box.children[0]);
+					}
+					var endImg=document.createElement("img");
+					endImg.style.position="absolute";
+					endImg.className="end";
+					endImg.src="img/end.png";
+					endImg.onclick=null
+					endImg.style.width='400px';
+					endImg.style.height="400px";
+					endImg.style.left="200px"
+				
+					box.appendChild(endImg);
+					/*
+					 * 如果游戏已经结束，则让暂停按钮无法继续执行
+					 * 设置一个flag标记备用
+					 */
+					flag=true;
+					//如果游戏结束，将btn0设置为重新开始
+					btn0.value="重新开始"
+				}
+			}
+			
+			
+          
+	     //点击按钮时执行
+			btn0.onclick=function(){
+				//定时器存在时，不会重复创建定时器
+				if(intervalId){
+					return 
+				}
+				//点击开始按钮时，先清空屏幕上的所有老鼠
+				for(var i=0;i<box.children.length;i++ ){
+					box.removeChild(box.children[i])
+				}
+				//如果显示重新开始时,则重新开始游戏
+				if(this.value=="重新开始"){
+					//再一次重新创建老鼠
+					rePeatCreateMouse();
+					//如果已经是重新开始，则设置为继续暂停
+					falg=false;
+					this.value="开始";
+					
+				}else if(this.value=="开始"){
+					rePeatCreateMouse();//再一次创建老鼠
+					//将按钮的值"设置为重新开始
+					this.vlaue="重新开始"
+					
+				}
+			}
+			
+			//点击暂停按钮时
+			btn1.onclick=function(){
+				if(flag){
+					return ;//游戏结束时不能再继续按“继续”或“暂停”
+				}
+				if(this.value=="暂停"){
+					//清除定时器
+					clearInterval(intervalId)
+					this.value="继续";
+				}else if(this.value=="继续"){
+					rePeatCreateMouse();//创建老鼠
+					this.value="暂停";
+				}
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>

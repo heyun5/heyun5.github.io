@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="lib/js/jquery-3.3.1.js"></script>
+	</head>
+	<style>
+		.stage{
+			width: 800px;
+			height: 600px;
+			position: relative;
+		}
+		.stage>img{
+			width: 400px;
+			height: 300px;
+			margin: 25%;
+		}
+		.box{
+			width: 800px;
+			height: 600px;
+			position: absolute;
+			left: 0;
+			top: 0;
+			margin-top:100px ;
+			visibility: hidden;
+			transition: all 0.5s;
+		}
+		.box .left-top{
+			width: 400px;
+			height: 300px;
+			float: left;
+			background: url(img/3.jpg) no-repeat;
+			transform: scale(0.7);
+			transition: all 0.2s;
+			opacity: 0;
+		}
+		.box .right-top{
+			width: 400px;
+			height: 300px;
+			float: left;
+			background: url(img/3.jpg) no-repeat;
+			background-position-x: -400px;
+			transform: scale(0.7);
+			opacity: 0;
+			transition: all 0.2s linear 0.1s;
+		}
+		.box .left-bottom{
+			width: 400px;
+			height: 300px;
+			float: left;
+			background: url(img/3.jpg) no-repeat;
+			background-position-y: -300px;
+			transform: scale(0.7);
+			transition:all 0.2s linear 0.3s;
+			opacity: 0; 
+		}
+		.box .right-bottom{
+			width: 400px;
+			height: 300px;
+			float: left;
+			background: url(img/3.jpg) no-repeat;
+			background-position-x: -400px;
+			background-position-y:-300px ;
+			transform: scale(0.7);
+			/*延时播放*/
+			transition:all 0.2s linear 0.4s;
+			opacity: 0;
+			
+		}
+	</style>
+	<body>
+		<div class="stage">
+			<img src="img/3.jpg" alt="" />
+			<div class="box">
+				<div class="left-top active"></div>
+				<div class="right-top active"></div>
+				<div class="left-bottom active"></div>
+				<div class="right-bottom active"></div>
+			</div>
+		</div>
+	</body>
+	<script>
+		    
+		$(".stage").hover(function(){
+			$(".box").css("visibility","visible");
+			$(".box .active").css({
+				"transform":"scale(1)",
+				"opacity":1
+			})
+		},function(){
+			$(".box").css("visibility","hidden")
+		})
+	</script>
+</html>

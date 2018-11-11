@@ -1,0 +1,23 @@
+<%- include("./com/header") %> 
+
+
+ <div class="container post">
+        <!--每篇文章一行=====post-content=====进行判断是否可循环=====-->
+        <% if(post.length){ %> 
+            <% post.forEach(element => { %>
+                <%- include("./com/post-content",{post:element}) %> 
+            <% }) %>
+        <% }else{ %> 
+        <div class="row">
+        <div class="col-sm-2 hidden-xs profile"></div>
+            <div class="col-xs-12 col-sm-8">
+                <div class="panel panel-default">
+                    <div class="panel-body text-center"><h4>作者还没有发布文章!!!</h4></div>
+                </div>
+            </div>
+        </div>
+        <% } %> 
+</div>
+
+
+<%- include("./com/footer") %> 

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="lib/js/jquery-3.3.1.js"></script>
+	</head>
+	<body>
+    <div class="stage">
+        <img src="img/3.jpg">
+        <div class="box">
+            <div class="left active"></div>
+            <div class="right active"></div>
+        </div>
+        <div class="touch"></div>
+    </div>
+    <style>
+    .stage {
+        width: 800px;
+        height: 600px;
+        position: relative;
+        margin: 100px;
+    }
+    .stage>img{
+        width: 400px;
+        height: 300px;
+        margin: 25%;
+    }
+    .box {
+        width: 800px;
+        height: 600px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-top:50px ;
+        transition: all .2s;
+        visibility: hidden;
+    }
+    .box .left {
+        width: 400px;
+        height: 800px;
+        float: left;
+        /*margin-top: 50px;*/
+        background: url(img/3.jpg) no-repeat;
+        transition: all .8s;
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    .box .right{
+        width: 400px;
+        height: 800px;
+        /*margin-top: 50px;*/
+        background: url(img/3.jpg) no-repeat;
+        background-position-x: -400px;
+        float: left;
+        transition: all .7s linear .2s;
+        opacity: 0;
+        transform: scale(0.7);
+    }
+   
+
+    </style>
+      <script>
+		    $(".stage").hover(function(){
+		        $(".box").css("visibility","visible");
+		        $(".box .active").css({
+		            "transform":'scale(1)',
+		            "opacity":'1'
+		        });
+		    },function(){
+		        $(".box").css("visibility","hidden");
+		    });
+    </script> 
+
+</body>
+</html>

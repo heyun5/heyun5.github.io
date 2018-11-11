@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.container{
+			width: 500px;
+			height: 500px;
+			border: 1px solid black;
+		}
+		.contain{
+			position: relative;
+			margin: 50px;
+		}
+		.img{
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			border: 10px solid white;
+			border-radius: 50%;
+			background-image: url("./lib/imgs/01.jpg");
+			background-position: -200px -250px;
+		}
+		.circle{
+			width: 200px;
+			height: 200px;
+			z-index: 8;
+			position: absolute;
+			border-top:10px solid orange;
+			border-left: 10px solid orange;
+			border-right: 10px solid lightseagreen;
+			border-bottom: 10px solid lightseagreen;
+			border-radius: 50%;
+			transition: all 2s;
+		}
+		/*@-webkit-keyframes circle{
+			50%{-webkit-transform:rotate(180deg);}
+			100%{-webkit-transform: rotate(360deg);}
+		}*/
+		.circle:hover{
+			-webkit-transform: rotate(180deg);
+			/*-webkit-animation-name: circle;
+			-webkit-animation-duration: 2s;
+			-webkit-animation-timing-function: ease-in-out;
+			-webkit-animation-iteration-count: infinite;*/
+		}
+		@-webkit-keyframes bg{
+			0%{opacity: 0;}
+			50%{opacity: 0.3;}
+			100%{opacity: 0.5;}
+			/*100%{background: #204D74;}*/
+		}
+		.circle:hover+.word{
+			-webkit-animation-name: bg;
+			-webkit-transition-duration: 2s;
+			-webkit-animation-fill-mode: forwards;
+			-webkit-transition-timing-function: ease-in-out;
+			-webkit-animation-iteration-count: 2;
+		}
+		.word{
+			position: absolute;
+			background-color: black;
+			opacity: 0;
+			z-index: 7;
+			width: 140px;
+			height: 140px;
+			color: white;
+			border: 10px solid black;
+			border-radius: 50%;
+			padding: 30px;
+			line-height: 35px;
+		}
+		.word h3{
+			color: white;
+			text-transform:uppercase;
+			text-align: center;
+		}
+		.word i{
+			color: white;
+			font-size: 10px;
+			text-align: center;
+		}
+		.word i:before{
+			content: "";
+			height: 1px;
+			width: 70%;
+			position: absolute;
+			background-color: white;
+			text-align: center;
+		}
+	</style>
+	<body>
+		<div class="container">
+			<div class="contain">
+				<div class="img"></div>
+				<div class="circle"></div>
+				<div class="word">
+					<h3>Heading here</h3>
+					<i>Descripting goes here</i>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

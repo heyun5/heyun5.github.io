@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="lib/js/echarts.js"></script>
+	</head>
+	<style>
+		#box,#box1{
+			width: 400px;
+			height: 400px;
+			border:1px solid red;
+			float: left;
+		}
+	</style>
+	<body>
+		<div id="box"></div>
+		<div id="box1"></div>
+	</body>
+	<script>
+		//初始化函数
+		var chart=echarts.init(document.getElementById("box"));
+		//图表的配置和数据
+		 var option = {
+	            title: {
+	                text: 'ECharts 入门示例'
+	            },
+	            tooltip: {},
+	            legend: {
+	                data:['销量']
+	            },
+	            xAxis: {
+	                data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+	            },
+	            yAxis: {},
+	            series: [{
+	                name: '销量',
+	                type: 'bar',
+	                data: [5, 20, 25, 10, 10, 20]
+	            }]
+        };
+		
+        //setOption()方法实现画图
+        chart.setOption(option);
+        
+	</script>
+	<script>
+		var box1=document.getElementById("box1");
+		var chart1=echarts.init(box1)
+		var option = {
+		    legend: {},
+		    tooltip: {},
+		    dataset: {
+		        // 提供一份数据。
+		        source: [
+		            ['product', '2015', '2016', '2017'],
+		            ['Matcha Latte', 43.3, 85.8, 93.7],
+		            ['Milk Tea', 83.1, 73.4, 55.1],
+		            ['Cheese Cocoa', 86.4, 65.2, 82.5],
+		            ['Walnut Brownie', 72.4, 53.9, 39.1]
+		        ]
+		    },
+		    // 声明一个 X 轴，类目轴（category）。默认情况下，类目轴对应到 dataset 第一列。
+		    xAxis: {type: 'category'},
+		    // 声明一个 Y 轴，数值轴。
+		    yAxis: {},
+		    // 声明多个 bar 系列，默认情况下，每个系列会自动对应到 dataset 的每一列。
+		    series: [
+		        {type: 'bar'},
+		        {type: 'bar'},
+		        {type: 'bar'}
+		    ]
+		};
+		chart1.setOption(option)
+		
+		
+		
+	</script>
+</html>

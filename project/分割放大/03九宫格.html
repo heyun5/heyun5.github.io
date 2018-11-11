@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="lib/js/jquery-3.3.1.js"></script>
+	</head>
+	<style>
+		.stage{
+			width: 1100px;
+			height: 600px;
+			position: relative;
+		}
+		.stage>img{
+			width: 400px;
+			height: 300px;
+			margin: 25% 25%;
+		}
+		.box{
+			width: 1100px;
+			height: 600px;
+			position: absolute;
+			/*border: 1px solid red;*/
+			left: 0;
+			top: 0;
+			margin-left:100px ;
+			margin-top: 150px;
+			transition: all 1s;
+			visibility: hidden;
+		}
+		.box .a11{
+			width: 300px;
+			height: 200px;
+			float: left;
+			opacity: 0;
+			background: url(img/3.jpg) no-repeat;
+			transition: all 0.5s;
+			transform: scale(0.5);
+		}
+		.box .a12{
+			width: 300px;
+			height: 200px;
+			float: left;
+			opacity: 0;
+			background: url(img/3.jpg) no-repeat;
+			background-position-x: -300px;
+			transition: all 0.5s linear 0.1s;
+			transform: scale(0.5);
+		}
+		.box .a13{
+			width: 300px;
+			height: 200px;
+			float: left;
+			opacity: 0;
+			background: url(img/3.jpg) no-repeat;
+			background-position-x: -600px;
+			transform: scale(0.5);
+			transition: all 0.5s linear 0.1s;
+			
+		}
+		.box .a21{
+			width: 300px;
+			height: 200px;
+			float:left;
+			opacity: 0;
+			background: url(img/3.jpg) no-repeat;
+			transform: scale(0.5);
+			transition: all 0.5s linear 0.1s ;
+			background-position-y: -200px;	
+		}
+		.box .a22{
+			width: 300px;
+			height: 200px;
+			float: left;
+			opacity: 0;
+			background: url(img/3.jpg) no-repeat;
+			transition: all 0.5s linear 0.1s;
+			transform: scale(0.5);
+			background-position-x: -300px;
+			background-position-y: -200px;
+		}
+		.box .a23{
+			width: 300px;
+			height: 200px;
+			float: left;
+			opacity: 0;
+			background: url(img/3.jpg) no-repeat;
+			transition: all 0.5s linear 0.1s;
+			transform: scale(0.5);
+			background-position-x: -600px;
+			background-position-y: -200px;
+		}
+		.box .a31{
+			width: 300px;
+			height: 200px;
+			float: left;
+			opacity: 0;
+			background: #DCDCDC url(img/3.jpg) no-repeat;
+			transition: all 0.5s linear 0.1s;
+			transform: scale(0.5);
+			background-position-y: -400px;
+		}
+		.box .a32{
+			width: 300px;
+			height: 200px;
+			float: left;
+			opacity: 0;
+			background: #DCDCDC url(img/3.jpg) no-repeat;
+			transition: all 0.5s linear 0.1s;
+			transform: scale(0.5);
+			background-position-y: -400px;
+			background-position-x:-300px ;
+		}
+		/*背景移动部分是根据盒子宽高来定*/
+		.box .a33{
+			width: 300px;
+			height: 200px;
+			float: left;
+			opacity: 0;
+			background:#DCDCDC url(img/3.jpg) no-repeat;
+			transition: all 0.5s linear 0.1s;
+			transform: scale(0.5);
+			background-position-y: -400px;
+			background-position-x:-600px ;
+		}
+	</style>
+	<body>
+		<div class="stage">
+			<img src="img/3.jpg" alt="" />
+			<div class="box">
+				<div class="a11 acitve"></div>
+				<div class="a12 acitve"></div>
+				<div class="a13 acitve"></div>
+				<div class="a21 acitve"></div>
+				<div class="a22 acitve"></div>
+				<div class="a23 acitve"></div>
+				<div class="a31 acitve"></div>
+				<div class="a32 acitve"></div>
+				<div class="a33 acitve"></div>
+			</div>
+		</div>
+	</body>
+	<script>
+		$(".stage").hover(function(){
+//			console.log("1356")
+			$(".box").css("visibility","visible");
+			$(".box .acitve").css({
+				"transform":"scale(1)",
+				"opacity":2
+			})
+		},function(){
+			$(".box").css("visibility","hidden");
+		})
+		
+
+     
+	</script>
+</html>

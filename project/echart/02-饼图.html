@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="lib/js/echarts.js"></script>
+	</head>
+	<style>
+		#box,#line,#nan{
+			width: 400px;
+			height: 400px;
+			float: left;
+			margin: 10px 10px ;
+			border: 1px solid red;
+		}
+	</style>
+	<body>
+		<div id="box"></div>
+		<div id="line"></div>
+		<div id="nan"></div>
+	</body>
+	<!--
+		颜色主题:Theme;
+		调色盘：各部份的颜色
+		直接样式设置：itemStyle,lineStyle,areaStyle,label;
+		视觉映射：visualMap
+	-->
+	<script>
+		//点击模块会自动放大
+		var box=document.getElementById("box")
+		var chart=echarts.init(box).setOption({
+			series:{
+			type:"pie",
+			data:[
+				{name:"a",value:"100"},
+				{name:"b",value:"200"},
+				{name:"c",value:"300"},
+				{name:"d",value:"500"},
+				{name:"e",value:"200"}
+				]
+		}
+		})
+	
+		
+	</script>
+	<script>
+		var line=document.getElementById("line");
+		var chart=echarts.init(line).setOption({
+			title: {text: 'Line Chart'},
+			//帮助工具栏===数据视图，保存图片，还原===可以手动修改数据视图从而修改图形
+//		    tooltip: {},
+//		    toolbox: {
+//		        feature: {
+//		            dataView: {},
+//		            saveAsImage: {
+//		                pixelRatio: 2
+//		            },
+//		            restore: {}
+//		        }
+//		    },
+		    xAxis: {},
+		    yAxis: {},
+		    series: [{
+		        type: 'line',
+		        smooth: true,
+		        data: [[12, 5], [24, 20], [36, 36], [48, 10], [60, 10], [72, 20]]
+		    }]
+		    //交互组件===位于表格底部
+//		    	dataZoom:[
+//			{
+//				type:"slider",
+//				start:"10",
+//				end:"60"
+//			}
+//			]
+		})
+	</script>
+	<script>
+		var nan=document.getElementById("nan");
+		var chart=echarts.init(nan).setOption({
+			series:{
+				type:"pie",
+			roseType:"angle",  //南丁格尔样式==各模块半径不同
+			radius:"80%",
+			data:[
+				{name:"一月",value:"100"},
+				{name:"二月",value:"200"},
+				{name:"三月",value:"300"},
+				{name:"四月",value:"500"},
+				{name:"五月",value:"200"}
+				]
+			},
+		
+			//css样式
+			itemStyle:{
+				//扇形颜色
+//				color:"green",
+				shadowBlur:200,
+				shadowOffsetX:10,
+				shadowOffsetY:10,
+				shadowColor:"rgba(120,100,180,0.5)"
+			},
+			//背景css
+			backgroundColor:"lightyellow",
+			//字体颜色=====????
+			label: {
+			    textStyle: {
+			        color: 'rgba(255, 255, 255, 0.3)'
+			    }
+			},
+			//引导线颜色
+			labelLine:{
+				lineStyle:{
+					color:"yellow"
+				}
+			}
+			//颜色明暗度的映射===扇形颜色的程度
+//			visualMap:{
+//				show:false,
+//				min:80,
+//				max:600,
+//				inRange:{
+//					colorLightness:[0,1]
+//				}
+//			}
+		})
+		
+	</script>
+</html>
