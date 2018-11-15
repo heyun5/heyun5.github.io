@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .product-list span {
+            display: block;
+        }
+        .table tr td .price::before,td .subtotal::before,.modal-footer .total:before{
+            content:"￥"
+            
+        }
+
+        #myModal table tr td {
+            line-height: 50px;
+        }
+
+        #myModal table tr td img {
+            width: 50px;
+            float: left;
+        }
+        #myModal table tr td h5 i {
+            width: 34px;
+            height: 14px;
+            background:
+            url('https://img11.360buyimg.com/jdphoto/s68x28_jfs/t24730/322/2165679440/954/fe3afa05/5bc45b9aNb1315ac0.png');
+            /* 显示全图 */
+            background-size: 100%;
+            display: inline-block;
+        }
+        
+        #myModal table tr td h5 {
+            float: left;
+            margin: 0;
+            width:240px;
+            line-height: 35px;
+        }
+
+        #myModal table tr td .quantity {
+            margin: 0 5px;
+        }
+
+        #myModal table tr td .quantity-minus,
+        #myModal table tr td .quantity-plus {
+            border: 1px solid gray;
+        }
+        #myModal table tr .btn{
+            width: 100px;
+        }
+        #myModal table tr .btn p{
+            color:red;
+            margin-top:-30px;
+            
+        }
+        .modal-footer .total{
+            color: red;
+        }
+        .table tr td .wei{
+            color: red;
+            margin-top: -30px;
+        }
+        .table tr td .attr{
+            color: red;
+        }
+        
+    </style>
+
+</head>
+<body>
+    <div class="container" id="myModal">
+        <div class="modal-dialog  modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">仿京东购物车</h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table">
+                        <tr>
+                            <th><input calss="quan" type="checkbox" v-model="allCheck"  @click="checkAll($event)">全选</th>
+                            <th>商品信息</th>
+                            <th>单价</th>
+                            <th>数量</th>
+                            <th>小计</th>
+                            <th>操作</th>
+                        </tr>
+                        <tr v-for="item in products" :key="item.id">
+                            <!-- <td><input type="checkbox" class="dan"  v-model="item.checked"></td> -->
+                            <td><input type="checkbox" class="dan" :value="item.value" v-model="checkData">单选</td>
+                            <td>
+                                <img :src="item.thumb" class="img-responsive" alt="Image">
+                                <h5> <i v-if="item.isDouble11"></i>{{item.title}}<p class="attr">{{item.CustomAttrList}}</p></h5>
+                                <!-- <p class="attr">{{item.CustomAttrList}}</p> -->
+                                
+                            </td>
+                            <td><span class="price">{{item.price.toFixed(2)}}</span></td>
+                            <td class="btn">
+                                <span class="quantity-minus" @click="quantityMinus(item)">-</span>
+                                <span class="quantity">{{item.quantity}}</span>
+                                <span class="quantity-plus" @click="item.quantity++">+</span>
+                                <p v-if="item.isStock">{{item.isStock}}</p>
+                            </td>
+                            <td><span class="subtotal">{{item.price * item.quantity.toFixed(2)}}</span><p  class="wei"v-if="item.weight">{{item.weight}}</p></td>
+                            <td><button type="button" class="btn btn-info" @click="removeItem(item)">删除</button><br><button class="btn btn-info" @click="addFocus">加入个人关注</button></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary pull-left del-all"  @click="removeAll">移出购物车</button>
+                    <span class="total">{{total.toFixed(2)}}元</span><button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="请至少选择一件产品" @click="settlement">去结算</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    new Vue({
+        el:"#myModal",
+        data:{
+            allCheck:'',
+            allPrice:'',
+            products:[{
+                    title: 'Apple iPhone X',
+                    thumb: 'https://img13.360buyimg.com/mobilecms/s270x270_jfs/t10675/253/1344769770/66891/92d54ca4/59df2e7fN86c99a27.jpg!q70.dpg.webp',
+                    price: 6999.00,
+                    quantity:1,
+                    value:1,
+                    isDouble11: true,
+                    isStock:"有货",
+                    weight:'0.5kg',
+                    CustomAttrList: "3GB^32GB^5.99英寸",
+                    checked:false
+                    
+                    
+                    
+                }, {
+                    title: '荣耀9i 4GB+64GB 幻夜黑 移动联通电信4G全面屏手机 双卡双待',
+                    thumb: 'https://img12.360buyimg.com/mobilecms/s270x270_jfs/t21415/332/642302956/189613/778f2021/5b13cd6cN8e12d4aa.jpg!q70.dpg.webp',
+                    price: 1299.00,
+                    quantity:1,
+                    value:2,
+                    isDouble11: false,
+                    isStock:false,
+                    weight:'0.5kg',
+                    CustomAttrList: "3GB^32GB^5.99英寸",
+                   
+                },{
+                    title:"苹果智能感知蓝牙耳机",
+                   thumb:"https://img10.360buyimg.com/mobilecms/s300x300_jfs/t16021/9/921997746/18717/e1151602/5a42ec87N09180e17.jpg!q70.jpg",
+                    price:1580,
+                    quantity:1,
+                    value:3,
+                    isDouble11: true,
+                    isStock:"有货",
+                    weight:'0.5kg',
+                    CustomAttrList: "3GB^32GB^5.99英寸",
+                   
+                }, {
+                    title: '黑莓（BlackBerry）KEY2标准版 6GB+64GB双卡双待 4G全网通手机 黑色 移动联通电信手机',
+                    thumb: 'https://img10.360buyimg.com/mobilecms/s270x270_jfs/t25855/259/1224767986/141142/af393ca6/5b8e328dN0671ae1e.jpg!q70.dpg.webp',
+                    price: 3699.00,
+                    quantity:1,
+                    value:4,
+                    isDouble11: false,
+                    isStock:false,
+                    weight:'0.5kg',
+                    CustomAttrList: "3GB^32GB^5.99英寸",
+
+                }],
+                checkData:[],
+        },
+        computed:{
+           total:function(){
+               var totel=0
+               this.products.forEach(element => {
+                   totel+=element.quantity*element.price
+               });
+               return  allPrice=totel;
+               
+           },
+        //    标记checked单选
+           markItem:function(){
+               return this.products.filter(function(item){
+                   return item.checked
+               })
+           }
+        },
+        methods:{
+            quantityMinus:function(item){
+                if(item.quantity>1){
+                    item.quantity--
+                }else{
+                    this.products.splice(this.products.indexOf(item),1)
+                }
+            },
+            // 删除按钮
+            removeItem:function(item){
+                this.products.splice(this.products.indexOf(item),1)
+            },
+            // removeAll:function(){
+            //     var arr=[];
+            //     this.products.forEach(element => {
+            //         if(element.checked){
+            //             arr.push(element)
+            //         }
+            //     });
+            //     arr.forEach(element => {
+            //         this.removeItem(element)
+            //     });
+            // }
+
+            // 标记checked之后,移出购物车
+            removeAll:function(){
+                this.markItem.forEach(element => {
+                    this.removeItem(element)
+                });
+            },
+            // 设置结算
+            settlement:function(totel){
+                // console.log("123")
+                var productsList=[];
+                this.products.forEach(element => {
+                    if(element){
+                        productsList.push(element)
+                    }
+                });
+               if(productsList.length===0){
+                //    console.log("还没选择东西")
+                alert("至少选择一件商品")
+               }else{
+                
+                alert("总金额为"+allPrice+"请在两分钟内完成付款！")
+                //    先登录再买单
+                //    location.href="https://passport.jd.com/new/login.aspx"
+               }
+            },
+            // 商品添加到个人关注中
+            addFocus:function(item){
+                 alert("已加入个人关注")
+            },
+            // 实现了全选，但是反选功能不可以,全选按钮触发了鼠标事件
+            // checkAll:function(val){
+            //     this.products.forEach(p =>{p.checked=val})
+            // }
+
+            // 实现全选，反选功能,没有实现实时监听checkData数组的变化
+           checkAll(e){
+               if(e.target.checked){
+                   this.products.forEach((el,i) => {
+                    //    数组中没有value时push元素，防止重复操作push
+                       if(this.checkData.indexOf(el.value)=='-1'){
+                           this.checkData.push(el.value)
+                       }
+                   });
+               }else{
+                //    全不选时清空绑定的数组
+                   this.checkData=[]
+               }
+           }
+
+
+        }
+        
+    })
+    </script>
+</body>
+</html>

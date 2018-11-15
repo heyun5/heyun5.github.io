@@ -1,0 +1,25 @@
+.product-list span {
+  display: block;
+}
+.product-list span::before {
+  content: "￥";
+}
+#myModal table tr td {
+  line-height: 50px;
+}
+#myModal table tr td img {
+  width: 50px;
+  float: left;
+}
+#myModal table tr td h5 {
+  float: left;
+  margin: 0;
+  line-height: 50px;
+}
+#myModal table tr td .quantity {
+  margin: 0 5px;
+}
+#myModal table tr td .quantity-minus,
+#myModal table tr td .quantity-plus {
+  border: 1px solid gray;
+}

@@ -1,0 +1,35 @@
+.product-list {
+  span {
+    display: block;
+
+    &::before {
+      content: "￥";
+    }
+  }
+}
+
+#myModal {
+  table {
+    tr {
+      td {
+        line-height: 50px;
+        img {
+          width: 50px;
+          float: left;
+        }
+        h5 {
+          float: left;
+          margin: 0;
+          line-height: 50px;
+        }
+        .quantity {
+          margin: 0 5px;
+        }
+        .quantity-minus,
+        .quantity-plus {
+          border: 1px solid gray;
+        }
+      }
+    }
+  }
+}
