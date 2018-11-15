@@ -106,6 +106,7 @@ https://heyun5.github.io/javascript/countdown.html
 https://heyun5.github.io/project/3D-photo/3D-photo.html
 
 ...
+...
 ##chart
 
 [柱状图](https://heyun5.github.io/project/echart/01-zhuzhuangtu.html)
@@ -127,9 +128,9 @@ https://heyun5.github.io/project/echart/04-echart-rose.html
 [进度条](https://heyun5.github.io/project/loading/03-load.html)https://heyun5.github.io/project/loading/03-load.html
 
 [数字加载](https://heyun5.github.io/project/loading/04-data-loading.html)https://heyun5.github.io/project/loading/04-data-loading.html
+...
 
-
-
+...
 ##分割放大
 
 [两格放大](https://heyun5.github.io/project/fenge-fangda/01-two.html)https://heyun5.github.io/project/fenge-fangda/01-two.html
@@ -138,7 +139,9 @@ https://heyun5.github.io/project/echart/04-echart-rose.html
 
 [九宫格放大](https://heyun5.github.io/project/fenge-fangda/03-nine.html)
 https://heyun5.github.io/project/fenge-fangda/03-nine.html
+...
 
+...
 ##小游戏
 
 [数字拼图](https://heyun5.github.io/project/game-data/index.html)
@@ -155,14 +158,16 @@ https://heyun5.github.io/project/luck-draw/index.html
 
 [垃圾回收站](https://heyun5.github.io/project/trash/index.html)
 https://heyun5.github.io/project/trash/index.html
-      
+...
 
+
+...
 ##node.js,需要安装依赖包，详情readme.md
 
 [个人博客登录](https://heyun5.github.io/project/todo-express-mongoose-master/index.js)https://heyun5.github.io/project/todo-express-mongoose-master/index.js
+...
 
-
-
+...
 ##vue.js
 
 [京东购物车](https://heyun5.github.io/project/vue/07-shopping-cat.html)
@@ -172,3 +177,4 @@ https://heyun5.github.io/project/vue/07-shopping-cat.html
 
 [表单提交](https://heyun5.github.io/project/vue/10-todo.html)
 https://heyun5.github.io/project/vue/10-todo.html
+...
