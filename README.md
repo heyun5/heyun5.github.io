@@ -45,6 +45,9 @@ https://heyun5.github.io/html+css+css3/hover/05hover-dooudong.html
 
 [轮播图](https://heyun5.github.io/javascript/lunbotu/lunbo.html)https://heyun5.github.io/javascript/lunbotu/lunbo.html
 
+[网易云首页轮播图](https://heyun5.github.io/project/wangyi-lunbo/002.html)
+https://heyun5.github.io/project/wangyi-lunbo/002.html
+
 [打地鼠](https://heyun5.github.io/javascript/mouse/mouse.html)https://heyun5.github.io/javascript/mouse/mouse.html
 
 [用户验证信息](https://heyun5.github.io/javascript/yanzhe/register.html)https://heyun5.github.io/javascript/yanzhe/register.html
@@ -83,3 +86,65 @@ https://heyun5.github.io/javascript/countdown.html
 
 [图片选项放大](https://heyun5.github.io/jquery/img/img.html)https://heyun5.github.io/jquery/img/img.html
 ...
+
+...
+##html5
+[图片拖拽](https://heyun5.github.io/project/H5--new/01-drag.html)https://heyun5.github.io/project/H5--new/01-drag.html
+[折线图](https://heyun5.github.io/project/H5--new/02-line-ecahrt.html)https://heyun5.github.io/project/H5--new/02-line-ecahrt.html
+...
+
+...
+##css3
+[ihover](https://heyun5.github.io/project/css3/01-ihover.html)https://heyun5.github.io/project/css3/01-ihover.html
+[canvas-安卓](https://heyun5.github.io/project/echart/05-canvas-andior.html)https://heyun5.github.io/project/echart/05-canvas-andior.html
+[3D-照片墙](https://heyun5.github.io/project/3D-photo/3D-photo.html)
+https://heyun5.github.io/project/3D-photo/3D-photo.html
+
+...
+##chart
+[柱状图](https://heyun5.github.io/project/echart/01-zhuzhuangtu.html)
+https://heyun5.github.io/project/echart/01-zhuzhuangtu.html
+[饼图](https://heyun5.github.io/project/echart/02-bingtu.html)https://heyun5.github.io/project/echart/02-bingtu.html
+[折线图](https://heyun5.github.io/project/echart/03-echart-drag.html)
+https://heyun5.github.io/project/echart/03-echart-drag.html
+[折线图](https://heyun5.github.io/project/echart/04-echart-rose.html)
+https://heyun5.github.io/project/echart/04-echart-rose.html
+[圆环进度条](https://heyun5.github.io/project/loading/01-circle-loading.html)
+( https://heyun5.github.io/project/loading/02-css-loading.html)
+       https://heyun5.github.io/project/loading/01-circle-loading.html
+	   https://heyun5.github.io/project/loading/02-css-loading.html
+[进度条](https://heyun5.github.io/project/loading/03-load.html)https://heyun5.github.io/project/loading/03-load.html
+[数字加载](https://heyun5.github.io/project/loading/04-data-loading.html)https://heyun5.github.io/project/loading/04-data-loading.html
+
+
+
+##分割放大
+[两格放大](https://heyun5.github.io/project/fenge-fangda/01-two.html)https://heyun5.github.io/project/fenge-fangda/01-two.html
+[四宫格放大](https://heyun5.github.io/project/fenge-fangda/02-four.html)https://heyun5.github.io/project/fenge-fangda/02-four.html
+[九宫格放大](https://heyun5.github.io/project/fenge-fangda/03-nine.html)
+https://heyun5.github.io/project/fenge-fangda/03-nine.html
+
+##小游戏
+[数字拼图](https://heyun5.github.io/project/game-data/index.html)
+https://heyun5.github.io/project/game-data/index.html
+[飞机游戏](https://heyun5.github.io/project/plane-all-vscode/index.html)
+https://heyun5.github.io/project/plane-all-vscode/index.html
+[打地鼠](https://heyun5.github.io/project/mouse/mouse.html)
+https://heyun5.github.io/project/mouse/mouse.html
+[幸运抽奖](https://heyun5.github.io/project/luck-draw/index.html)
+https://heyun5.github.io/project/luck-draw/index.html
+[垃圾回收站](https://heyun5.github.io/project/trash/index.html)
+https://heyun5.github.io/project/trash/index.html
+      
+
+##node.js,需要安装依赖包，详情readme.md
+[个人博客登录](https://heyun5.github.io/project/todo-express-mongoose-master/index.js)https://heyun5.github.io/project/todo-express-mongoose-master/index.js
+
+
+
+##vue.js
+[京东购物车](https://heyun5.github.io/project/vue/07-shopping-cat.html)
+https://heyun5.github.io/project/vue/07-shopping-cat.html
+[淘宝购物车](https://heyun5.github.io/project/vue/08-taobao.html)https://heyun5.github.io/project/vue/08-taobao.html
+[表单提交](https://heyun5.github.io/project/vue/10-todo.html)
+https://heyun5.github.io/project/vue/10-todo.html
