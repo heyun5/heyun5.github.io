@@ -1,0 +1,51 @@
+.login{
+  width: 100%;
+}
+.login .items{
+  width: 80%;
+  height:250px;
+   background: #ccc;
+   margin: 50px auto;
+   vertical-align: middle;
+   border-radius: 5px;
+}
+.login .items .list{
+  padding: 50px 0 0 40px;
+
+}
+.login .items .list view text{
+  font-size: 20px;
+  font-weight: blod;
+  color: blue;
+}
+.login .items .list .user{
+  width: 100%;
+  margin-top: 20px;
+}
+.login .items .list .user input{
+  display: inline-block;
+  background: #fff;
+  height: 30px;
+   border-radius: 5px;
+
+}
+.login .items .list .password{
+  width: 100%;
+
+}
+.login .items .list .password input{
+  display: inline-block;
+  background: #fff;
+  height: 30px;
+  margin-top: 10px;
+  border-radius: 5px;
+
+}
+.login .items .list .btn .left{
+  float: left;
+}
+.login .items .list .btn .right{
+  float: right;
+  right: 42px;
+}
+

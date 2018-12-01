@@ -1,0 +1,64 @@
+<!--pages/shopcar/shopcar.wxml-->
+<view class="shopcar">
+  <view class="item">
+    <!-- 跳转到登录页面 -->
+    <view class="dl">
+      <view class="list">
+        <image src="../../images/shop-car.png"></image>
+        <view class="txt">登录后可同步购物城商品</view>
+        <navigator url="../login/login">
+          <button form-type="submit" type="warn" size="mini">登录</button>
+        </navigator>
+      </view>
+    </view>
+    <!-- 优惠券的获取 -->
+    <view class="cheap">
+      <view class="getcheap">
+        <view class="txt">恭喜获得专属优惠礼包</view>
+        <button form-type="submit" type="warn" size='mini'>一键获取</button>
+        <!-- 优惠卡 -->
+        <view class="card">
+          <button>满150可用</button>
+          <button>满10可用</button>
+          <button>满120可用</button>
+        </view>
+      </view>
+    </view>
+    <!-- 京东两分钟秒杀 -->
+    <view class="act">
+      <view class="top">
+        <view class="title">京东秒杀</view>
+        <view class="seckill_act">
+          <text class="txt">京东秒杀</text>
+          <view class="timeout">
+            <view>{{hh}}</view>
+            <view>{{h}}</view>
+            <view>:</view>
+            <view>{{mm}}</view>
+            <view>{{m}}</view>
+            <view>:</view>
+            <view>{{ss}}</view>
+            <view>{{s}}</view>
+          </view>
+          <!-- 秒杀商品列表 -->
+          <view class="act_list">
+            <view class="item">
+              <block wx:for="{{result}}" wx:key="">
+                <navigator url="">
+                  <image src="{{item.img}}"></image>
+                  <text class="new_price">￥{{item.new_price}}</text>
+                  <text class="old_price">￥{{item.old_price}}</text>
+                </navigator>
+              </block>
+            </view>
+          </view>
+
+
+        </view>
+      </view>
+    </view>
+
+
+
+  </view>
+</view>

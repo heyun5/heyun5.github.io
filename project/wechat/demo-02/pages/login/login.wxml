@@ -1,0 +1,19 @@
+<view class="login">
+  <view class="items">
+  <view class="list">
+  <view><text>京东商城登录系统</text></view>
+      <form>
+        <view class="user">
+         <input type="text" placeholder='请输入用户名'/>
+        </view>
+        <view class="password">
+        <input  type="number" placeholder='请输入密码' />
+        </view>
+        <view class="btn">
+          <button class="left" form-type="submit" type="warn" size="mini">清除</button>
+          <button class="right" form-type="submit" type="primary" size="mini">登录</button>
+        </view>
+      </form>
+    </view>
+  </view>
+</view>

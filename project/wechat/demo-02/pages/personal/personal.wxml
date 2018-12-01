@@ -1,0 +1,26 @@
+<view class="person">
+  <view class="list">
+    <view class="item">
+      <view class="user">
+        <input placeholder='用户名/邮箱/已验证手机' />
+        <input placeholder='请输入密码' />
+      </view>
+      <view class="btn">
+        <button form-type="submit" class="dl">登录</button>
+        <button form-type="submit" class="dls">一键登录</button>
+      </view>
+      <!-- 验证 -->
+      <view class="yz">
+        <navigator url="../../pages/messages/messages">
+          <view class="message">短信验证码登录</view>
+        </navigator>
+        <navigator url="../../pages/register/register">
+           <view class="register">手机快速注册</view>
+        </navigator>
+      </view>
+      <!-- 换个方式登录 -->
+    
+
+    </view>
+  </view>
+</view>

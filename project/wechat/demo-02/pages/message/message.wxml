@@ -1,0 +1,22 @@
+<view class="mess">
+  <view class="list">
+    <view class="yz">
+      <input placeholder='请输入收到的验证码' />
+    </view>
+    <view class="btn">
+      <button class="dl">登录</button>
+      <button class="dls">一键登录</button>
+    </view>
+    <!-- 账户密码登录 -->
+    <view class="yz">
+      <navigator>
+        <view class="message">短信验证码登录</view>
+      </navigator>
+      <navigator>
+        <view class="register">手机快速注册</view>
+      </navigator>
+    </view>
+
+
+  </view>
+</view>

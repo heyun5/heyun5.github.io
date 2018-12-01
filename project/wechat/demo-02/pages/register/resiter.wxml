@@ -1,0 +1,10 @@
+<view class="res">
+  <view class="list">
+    <view class="item">
+      <input placeholder='请输入手机号'/>
+    </view>
+    <view class="btn">
+      <button form-type="submit">快速注册</button>
+    </view>
+  </view>
+</view>

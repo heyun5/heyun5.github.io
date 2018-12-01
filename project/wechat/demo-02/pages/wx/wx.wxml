@@ -1,0 +1,43 @@
+<view class='layout'>
+  <view class='main'>
+        <scroll-view scroll-y class='slide' >
+            <view class="item active">热门推荐</view>
+            <view class="item">手机数码</view>
+            <view class="item">家用电器</view>
+            <view class="item">电脑办公</view>
+            <view class="item">计生情趣</view>
+            <view class="item">美妆护肤</view>
+            <view class="item">个护清洁</view>
+            <view class="item">汽车用品</view>
+            <view class="item">京东超市</view>
+            <view class="item">男装</view>			
+            <view class="item">男鞋</view>			
+            <view class="item">女装</view>		
+            <view class="item">女鞋</view>		
+            <view class="item">母婴童装</view>
+            <view class="item">图书音像</view>
+            <view class="item">运动户外</view>
+            <view class="item">内衣配饰</view>
+            <view class="item">食品生鲜</view>
+            <view class="item">酒水饮料</view>
+            <view class="item">家具家装</view>
+            <view class="item">家居厨具</view>
+            <view class="item">箱包手袋</view>
+            <view class="item">钟表珠宝</view>
+            <view class="item">玩具乐器</view>
+            <view class="item">医药保健</view>
+            <view class="item">宠物生活</view>
+            <view class="item">礼品鲜花</view>
+            <view class="item">农资绿植</view>
+            <view class="item">生活旅行</view>
+        </scroll-view>
+        <view class='content'>
+            <view>
+                内容：热门推荐
+            </view>
+        </view>
+  
+  </view>
+
+
+</view>

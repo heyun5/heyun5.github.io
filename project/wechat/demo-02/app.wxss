@@ -1,0 +1,8 @@
+/* 清除导航栏浮动 */
+.clearfix::after{
+  content:"";
+  display: block;
+  clear: both;
+  opacity: 0;
+  height: 0
+}

@@ -1,0 +1,7 @@
+
+<view class="layout">
+  <view class="main" wx:for="{{data.res}}" wx:key="">
+  <text>123</text>
+  <text>{{item.color}}</text>
+  </view>
+</view>

@@ -1,0 +1,43 @@
+/* pages/wx/wx.wxss */page {
+  width:100%;
+  height: 100%;
+}
+.layout {
+  height: 100%;
+}
+.header {
+  width:100%;
+  height: 50px;
+  background-color: #f1f2f3;
+  text-align: center;
+  line-height: 50px;
+}
+.main {
+  width:100%;
+  height: calc(100% - 50px);
+}
+.main .slide {
+  width:90px;
+  height: 100%;
+  float: left;
+  background-color: #f0f0f0;
+}
+.main .slide .item {
+  width:100%;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  font-size: 13px;
+  color: #555;
+  border-bottom: 1px solid #fff;
+}
+
+
+.main .slide .item.active {
+  color:#ff0000;
+}
+.main .content {
+  overflow: hidden;
+  height: 100%;
+  background-color:skyblue;
+}

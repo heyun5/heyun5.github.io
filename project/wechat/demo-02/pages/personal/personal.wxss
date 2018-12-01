@@ -1,0 +1,46 @@
+.person{
+  width: 100%
+}
+.person .list{
+  width: 100%
+}
+.person .list .item{
+  width: 100%;
+}
+.person .list .item .user{
+  width: 100%;
+}
+.person .list .item .user input{
+  width: 100%;
+  height: 70px;
+  border-bottom:1px solid #ccc; 
+  padding: 0 0 0 20px;
+}
+.person .list .item .btn button{
+  width: 80%;
+  border-radius: 20px;
+  margin-top:10px;
+}
+.person .list .item .btn .dl{
+  background: rgba(255,0,0,0.4);
+  color: white;
+}
+.person .list .item .btn .dls{
+  border: 1px solid red;
+  color: red;
+}
+.person .list .item .yz{
+  width: 100%;
+}
+.person .list .item .yz navigator{
+  width: 100%;
+  margin-top: 20px;
+}
+.person .list .item .yz navigator .message{
+  float: left;
+  color: rgb(102, 99, 99);
+}
+.person .list .item .yz navigator .register{
+  float: right;
+  color:rgb(102, 99, 99);
+}

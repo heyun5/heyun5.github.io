@@ -1,0 +1,264 @@
+.layout{
+  width: 100%;
+}
+.header{
+  width: 100%;
+  height: 50px;
+  /* 定位 */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+.header .box{
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+   position: relative;
+   padding:0 50px 0 60px;
+   /* 将其设置为独立的盒子模型，不受外界干扰 */
+   overflow: hidden;
+}
+.header .box image{
+  width: 50px;
+  height: 20px;
+  position: absolute;
+  left: 5px;
+  top:15px;
+
+}
+.header .box form{
+  width: 100%;
+}
+.header .box form input {
+  width: 100%;
+  height: 30px;
+  border-radius: 15px;
+  background: #fff;
+  margin-top: 10px;
+  padding-left: 20px;
+  box-sizing: border-box;
+  font-size: 13px;
+}
+.header .box navigator{
+  display: block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: white;
+  /* background: red; */
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+/* 轮播 */
+.banner{
+  width: 100%;
+}
+.banner swiper{
+width: 100%;
+}
+.banner swiper swiper-item{
+  width: 100%;
+}
+.banner swiper swiper-item navigator image{
+  width: 100%;
+  height: 150px;
+  display: block;
+}
+/* 导航 */
+.nav_bar{
+  width: 100%;
+  margin-top:5px;
+}
+.nav_bar .btn-area{
+   width: 100%;
+   }
+.nav_bar .btn-area navigator{
+  width: 80px;
+  height: 80px;
+   float: left;
+   /*图标和内容居中 */
+   text-align: center;
+}
+.nav_bar .btn-area navigator image{
+  width:40px;
+  height: 40px;
+
+}
+.nav_bar .btn-area navigator>view{
+  width: 80px;
+  height: 40px;
+  font-size: 10px;
+}
+/* 秒杀活动 */
+.act{
+  width: 100%;
+  padding: 4px 10px;
+  box-sizing: border-box;
+  /* background: #ccc; */
+}
+.act .top{
+  width: 100%;
+  height: 32px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+
+}
+.act .top icon{
+  display: block;
+  width: 16px;
+  height: 16px;
+  float: left;
+  margin-top: 4px;
+}
+.act .top .txt{
+  color: red;
+  height: 32px;
+  line-height:32px;
+  font-size: 13px;
+  float: left;
+  padding: 0 10px;
+}
+.act .top .timeout{
+  float: left;
+}
+.act .top .timeout view{
+  float: left;
+  height: 32px;
+  line-height: 32px;
+  margin: 0 1px;
+}
+.act .top navigator{
+  font-size: 13px;
+  color: #ccc;
+  margin: 5px 0;
+  float: right;
+}
+.act .bottom{
+  width: 100%;
+  padding: 15px 0 0 0;
+}
+.act .bottom .list{
+  width: 100%;
+}
+.act .bottom .list .item{
+  /* 使其右浮动 */
+    display:flex;
+    text-align: center;
+}
+.act .bottom .list .item navigator{
+  display: block;
+  width: 100%;
+  
+}
+.act .bottom .list .item navigator image{
+  width: 80px;
+  height: 80px;
+   border-right: 1px solid #ccc;
+}
+.act .bottom .list .item navigator .new_price{
+  display: block;
+  color: red;
+  font-size: 13px;
+}
+.act .bottom .list .item navigator .old_price{
+  font-size: 13px;
+  text-decoration: line-through
+}
+/* 商品列表 */
+.product{
+  width:100%
+}
+.product .list{
+  width: 100%;
+}
+.product .list .item{
+  width: 100%;
+}
+.product .list .item .txt{
+  width: 100%;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  position: relactive;
+}
+.product .list .item .txt::before{
+  display: block;
+  background-color: red;
+  width: 2px;
+  height: 20px;
+  content: "";
+  position: absolute;
+}
+.product .list .item .txt text{
+  padding: 0px 0px 0px 5px;
+}
+.product .list .item .content{
+  width: 100%;
+  display: flex;
+}
+.product .list .item .content view{
+ flex: 1;
+}
+.product .list .item .content view navigator{
+  display: block;
+  width: 100%;
+}
+.product .list .item .content .left navigator image{
+  width: 100%;
+  height: 173px;
+} 
+
+.product .list .item .content .right{
+  width: 100%;
+}
+.product .list .item .content .right navigator image{
+  width: 100%;
+  height: 84px;
+}
+.product .list .item .content .right navigator:first-child{
+  border-bottom: 1px solid #ccc;
+}
+/* 热门活动 */
+.product .list .item .content .left1 navigator image{
+  width: 100%;
+  height: 84px;
+  display: block;
+
+} 
+
+.product .list .item .content .right1{
+  width: 100%;
+}
+.product .list .item .content .right1 navigator image{
+  width: 100%;
+  height: 168px;
+  display: block;
+}
+/* 商品详情 */
+.goods{
+  width: 100%;
+}
+.goods .list{
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+.goods .list navgator{
+  width: 100%;
+  display: block;
+}
+.goods .list navgator {
+  width: 100%;
+}
+.goods .list navgator image{
+  width: 80px;
+  height: 60px;
+}
+.goods .list navigator .title{
+  width:100%;
+  height: 100px;
+  font-size: 10px;
+  text-align: center;
+}

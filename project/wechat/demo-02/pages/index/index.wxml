@@ -1,0 +1,123 @@
+<view class="layout">
+  <!--头部输入框 -->
+  <view class="header" style='background-color:rgba(201,35,21,{{opa}})'>
+    <view class="box">
+      <image src="../../images/logo.png"></image>
+      <form>
+        <input type="text" placeholder='输入框' />
+      </form>
+      <!-- 跳转到登录页面 -->
+      <navigator url="/pages/login/login">登录</navigator>
+    </view>
+  </view>
+  <!-- 广告轮播 -->
+  <view class="banner">
+    <swiper autoplay="true" indicator-dots="true" indicator-active-color="white">
+      <block wx:for="{{banner_list}}" wx:key="">
+        <swiper-item>
+          <navigator url=''>
+            <image src='{{item.src}}'></image>
+          </navigator>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- 分类导航 -->
+  <view class="nav_bar">
+    <view class="btn-area clearfix">
+      <block wx:for="{{nav_bar}}" wx:key="">
+        <navigator url="">
+          <image src="{{item.src}}"></image>
+          <view url="">{{item.context}}</view>
+        </navigator>
+      </block>
+    </view>
+  </view>
+  <!-- 活动秒杀 -->
+  <view class="act">
+    <view class="top">
+      <icon type="waiting"></icon>
+      <text class="txt">活动秒杀</text>
+      <view class="timeout">
+        <view>{{hh}}</view>
+        <view>{{h}}</view>
+        <view>:</view>
+        <view>{{mm}}</view>
+        <view>{{m}}</view>
+        <view>:</view>
+        <view>{{ss}}</view>
+        <view>{{s}}</view>
+      </view>
+      <navigator>查看更多</navigator>
+    </view>
+    <view class="bottom">
+      <view class="list">
+        <view class="item">
+          <block wx:for="{{act_list}}" wx:key="">
+            <navigator url="">
+              <image src="{{item.src}}"></image>
+              <text class="new_price">￥{{item.new_price}}</text>
+              <text class="old_price">￥{{item.old_price}}</text>
+            </navigator>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 商品列表 -->
+  <view class="product">
+    <view class="list">
+      <view class="item">
+        <view class="txt">
+          <text>京东超市</text>
+        </view>
+        <view class="content">
+          <view class="left">
+            <navigator>
+              <image src="../../images/super_p1.jpg"></image>
+            </navigator>
+          </view>
+          <view class="right">
+            <navigator>
+              <image src="../../images/super_p2.jpg"></image>
+            </navigator>
+            <navigator>
+              <image src="../../images/super_p3.jpg"></image>
+            </navigator>
+          </view>
+        </view>
+      </view>
+        <view class='item'>
+          <view class='txt'>
+            <text>限时优惠</text>
+          </view>
+          <view class='content'>
+            <view class='left1'>
+              <navigator>
+                <image src='../../images/super_p5.jpg'></image>
+              </navigator>
+              <navigator>
+                <image src='../../images/super_p4.jpg'></image>
+              </navigator>
+            </view>
+            <view class='right1'>
+              <navigator>
+                <image src='../../images/super_p6.jpg'></image>
+              </navigator>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+   <!-- 商品详情 -->
+   <view class="goods">
+    <view class="list">
+      <block wx:for="{{goods}}" wx:key="">
+        <navigator>
+          <image src="{{item.img}}"></image>
+          <view class="title">{{item.title}}</view>
+        </navigator>
+      </block>
+    </view>
+   </view>
+</view>
